@@ -84,6 +84,42 @@
         }
       }
     },
+    "metadata": {
+      "site": {
+        "title": "Common Ground | Planting hope, growing change",
+        "description": "A better world starts with us. Seeking justice, nurturing peace, and empowering communities through grassroots action."
+      },
+      "pages": {
+        "about-us": {
+          "title": "About Us | Common Ground",
+          "description": "Learn about Common Ground, our mission, values, and community-driven approach."
+        },
+        "causes": {
+          "title": "Our Causes | Common Ground",
+          "description": "Explore our active impact areas in nature conservation, youth education, and community wellbeing."
+        },
+        "our-team": {
+          "title": "Our Team | Common Ground",
+          "description": "Different strengths, one shared purpose. Meet the caring community and team behind Common Ground."
+        },
+        "gallery": {
+          "title": "Gallery | Common Ground",
+          "description": "Small moments, something meaningful. A visual glimpse of connection and care at Common Ground."
+        },
+        "blog": {
+          "title": "Blog & Journal | Common Ground",
+          "description": "Good ideas, shared freely. Thoughts on caring for our planet, learning, and community."
+        },
+        "faq": {
+          "title": "Frequently Asked Questions | Common Ground",
+          "description": "A little clarity, a good place to start. Common questions about volunteering, causes, and support."
+        },
+        "contact": {
+          "title": "Contact Us | Common Ground",
+          "description": "A little hello, a new possibility. Connect with Common Ground and share your ideas or time."
+        }
+      }
+    },
     "sections": {
       "Header": {
         "variants": {
@@ -91,7 +127,8 @@
             "logo": {
               "name": "common ground",
               "dot": ".",
-              "subtitle": "Planting hope, growing change"
+              "subtitle": "Planting hope, growing change",
+              "image": "/images/logo-mark.jpg"
             },
             "navLinks": [
               { "name": "Home", "href": "/", "active": true },
@@ -371,7 +408,8 @@
             "logo": {
               "name": "common ground",
               "dot": ".",
-              "tagline": "Small acts. Lasting change."
+              "tagline": "Small acts. Lasting change.",
+              "image": "/images/logo-mark.jpg"
             },
             "columns": [
               {
@@ -399,7 +437,7 @@
               { "name": "Twitter", "href": "https://x.com", "icon": "twitter" },
               { "name": "LinkedIn", "href": "https://linkedin.com", "icon": "linkedin" }
             ],
-            "copyright": "© 2026 Common Ground. An original NGO website concept.",
+            "copyright": "© 2026 All Rights Reserved. Powered by Lestow",
             "missionNote": "Sample organization, illustrative programs and editorial content. Photography depicts community themes, not claimed projects. Donation and contact forms are demonstrations.",
             "backToTopText": "Back to top ↑",
             "bottomLinks": [

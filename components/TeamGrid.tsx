@@ -64,65 +64,23 @@ export default function TeamGrid({ data = teamSectionData }: TeamGridProps) {
                   className={`relative w-full aspect-[16/10] rounded-2xl ${bgClass} overflow-hidden mb-5 select-none shadow-sm border border-black/5`}
                 >
                   {role.image ? (
-                    <>
-                      <Image
-                        src={role.image}
-                        alt={role.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent pointer-events-none" />
-
-                      <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-xs text-[#143323] text-[10px] font-bold tracking-wider uppercase border border-white/60 shadow-xs flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#84A936]" />
-                        <span>{role.initials}</span>
-                      </div>
-
-                      <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between text-[#FAFBF7]">
-                        <span className="text-[8.5px] font-bold tracking-[0.16em] uppercase font-sans drop-shadow-sm">
-                          {role.noteBadge}
-                        </span>
-                        <svg
-                          className="w-4 h-4 stroke-[#FAFBF7] fill-none stroke-[2] drop-shadow-sm"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 21V11M12 11C12 7 9 4 5 4c0 4 3 7 7 7zm0 0c0-4 3-7 7-7 0 4-3 7-7 7z"
-                          />
-                        </svg>
-                      </div>
-                    </>
+                    <Image
+                      src={role.image}
+                      alt={role.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
                   ) : (
-                    <div className="w-full h-full p-5 flex flex-col justify-between">
+                    <div className="w-full h-full p-5 flex items-center justify-center">
                       <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
                         <div className="w-48 h-48 rounded-full border border-[#143323]/35" />
                         <div className="w-32 h-32 rounded-full border border-[#143323]/35 -ml-16" />
                       </div>
 
-                      <div className="relative z-10 flex-1 flex items-center justify-center">
-                        <span className="font-editorial text-4xl sm:text-5xl font-light text-[#143323] tracking-widest">
-                          {role.initials}
-                        </span>
-                      </div>
-
-                      <div className="relative z-10 flex items-center justify-between text-[#143323]">
-                        <span className="text-[7.5px] font-bold tracking-[0.16em] opacity-75 uppercase font-sans">
-                          {role.noteBadge}
-                        </span>
-                        <svg
-                          className="w-4 h-4 stroke-[#143323] fill-none stroke-[2]"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 21V11M12 11C12 7 9 4 5 4c0 4 3 7 7 7zm0 0c0-4 3-7 7-7 0 4-3 7-7 7z"
-                          />
-                        </svg>
-                      </div>
+                      <span className="relative z-10 font-editorial text-4xl sm:text-5xl font-light text-[#143323] tracking-widest">
+                        {role.initials}
+                      </span>
                     </div>
                   )}
                 </div>

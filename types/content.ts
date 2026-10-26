@@ -18,6 +18,7 @@ export interface HeaderLogo {
   name: string;
   dot: string;
   subtitle?: string;
+  image?: string;
 }
 
 export interface CommonGroundHeader1Data {
@@ -163,6 +164,7 @@ export interface CommonGroundFooter1Data {
     name: string;
     dot: string;
     tagline: string;
+    image?: string;
   };
   columns: FooterColumn[];
   social: SocialLink[];
@@ -458,11 +460,22 @@ export interface TemplateComponentsConfig {
   };
 }
 
+export interface PageMetadataItem {
+  title: string;
+  description: string;
+}
+
+export interface SiteMetadataConfig {
+  site: PageMetadataItem;
+  pages: Record<string, PageMetadataItem>;
+}
+
 export interface SiteTemplate {
   templateComponents: {
     "template-1": TemplateComponentsConfig;
     [templateKey: string]: TemplateComponentsConfig;
   };
+  metadata?: SiteMetadataConfig;
   sections: SectionVariants;
 }
 

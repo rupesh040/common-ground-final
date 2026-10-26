@@ -1,0 +1,25 @@
+Common Ground image credits
+All photos downloaded from Unsplash CDN, resized to 1600 px wide.
+
+planting.jpg
+Jonathan Kemper / Unsplash
+Original: https://unsplash.com/photos/person-holding-green-plant-on-black-pot-CbZh3kaPxrE
+CDN: https://images.unsplash.com/photo-1622383563227-04401ab4e5ea
+
+learning.jpg
+Annie Spratt / Unsplash
+Original: https://unsplash.com/photos/feU8G7E5ODI
+CDN: https://images.unsplash.com/photo-1567057420215-0afa9aa9253a
+
+garden.jpg
+Haberdoedas / Unsplash
+Original: https://unsplash.com/photos/people-working-and-gathering-in-a-community-garden-with-greenhouses-UAVXHBmVDOQ
+CDN: https://images.unsplash.com/photo-1781785273371-a959f34bfab0
+
+community.jpg
+Unsplash contributor / Unsplash
+Source collection: https://unsplash.com/s/photos/community-event
+CDN: https://images.unsplash.com/photo-1517457373958-b7bdd4587205
+
+Unsplash license: https://unsplash.com/license
+Photos illustrate community themes and do not represent Common Ground projects.

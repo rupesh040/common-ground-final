@@ -23,6 +23,7 @@ import type {
   MarqueeBannerSmallData,
   CauseDetailData,
   BlogDetailData,
+  PageMetadataItem,
 } from "@/types/content";
 
 export const contentData = rawJson as unknown as ContentRoot;
@@ -96,6 +97,22 @@ export function getSharedSectionData<T>(
 
 export function getPageBannerData(bannerVariant: string): PageBannerData {
   return getSectionData<PageBannerData>("PageBanners", bannerVariant);
+}
+
+export function getSiteMetadata(): PageMetadataItem {
+  const site = getSiteTemplate();
+  return (
+    site.metadata?.site || {
+      title: "Common Ground | Planting hope, growing change",
+      description:
+        "A better world starts with us. Seeking justice, nurturing peace, and empowering communities through grassroots action.",
+    }
+  );
+}
+
+export function getPageMetadata(pageKey: string): PageMetadataItem {
+  const site = getSiteTemplate();
+  return site.metadata?.pages?.[pageKey] || getSiteMetadata();
 }
 
 export function getCauseBySlug(slug: string): CauseDetailData | undefined {

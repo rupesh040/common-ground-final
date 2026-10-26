@@ -1,29 +1,19 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ComponentRenderer from "@/components/ComponentRenderer";
-import { getPageComponents, headerData, footerData } from "@/lib/content";
+import PageBanner from "@/components/PageBanner";
+import Blog from "@/components/Blog";
+import PreFooterCTA from "@/components/PreFooterCTA";
+import { getPageBannerData, getPageMetadata } from "@/lib/content";
 
-export const metadata = {
-  title: "Blog & Journal | Common Ground",
-  description: "Good ideas, shared freely. Thoughts on caring for our planet, learning, and community.",
-};
+export const metadata = getPageMetadata("blog");
 
 export default function BlogListingPage() {
-  const componentsList = getPageComponents("blog");
+  const bannerData = getPageBannerData("BlogPageBanner");
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F7F0]">
-      <Navbar data={headerData} />
-      <main className="flex-1">
-        {componentsList.map((compRef, index) => (
-          <ComponentRenderer
-            key={`${compRef.key}-${compRef.component}-${index}`}
-            componentRef={compRef}
-          />
-        ))}
-      </main>
-      <Footer data={footerData} />
-    </div>
+    <>
+      <PageBanner data={bannerData} />
+      <Blog />
+      <PreFooterCTA />
+    </>
   );
 }

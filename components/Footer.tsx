@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { CommonGroundFooter1Data } from "@/types/content";
 import { footerData } from "@/lib/content";
@@ -27,22 +28,19 @@ export default function Footer({ data = footerData }: FooterProps) {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 pb-12">
           
           <div className="flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-2 group mb-3">
-              <div className="text-white transition-transform group-hover:scale-105">
-                <svg
-                  className="w-6 h-6 stroke-white fill-none stroke-[2.2]"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 21V11M12 11C12 7 9 4 5 4c0 4 3 7 7 7zm0 0c0-4 3-7 7-7 0 4-3 7-7 7z"
-                  />
-                </svg>
+            <Link href="/" className="flex items-center gap-3 group mb-3">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-sm border border-white/20 shrink-0 bg-[#F7F7F0] transition-transform duration-200 group-hover:scale-105">
+                <Image
+                  src={data.logo?.image || "/images/logo-mark.jpg"}
+                  alt={data.logo?.name || "common ground"}
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex flex-col leading-[0.92] font-bold text-white tracking-tight font-sans text-[17px]">
-                <span>common</span>
-                <span>ground.</span>
+                <span>{data.logo?.name?.split(" ")[0] || "common"}</span>
+                <span>{(data.logo?.name?.split(" ")[1] || "ground") + (data.logo?.dot || ".")}</span>
               </div>
             </Link>
             <p className="text-xs text-[#8DA494] font-medium">
@@ -51,14 +49,15 @@ export default function Footer({ data = footerData }: FooterProps) {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-10 sm:gap-x-12 gap-y-3.5 text-xs sm:text-[13px] font-medium text-[#FAFBF7]/80">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <Link href="/about-us" className="hover:text-white transition-colors">About Us</Link>
-            <Link href="/causes" className="hover:text-white transition-colors">Our Causes</Link>
-            <Link href="/our-team" className="hover:text-white transition-colors">Our Team</Link>
-            <Link href="/gallery" className="hover:text-white transition-colors">Gallery</Link>
-            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-            <Link href="/faq" className="hover:text-white transition-colors">FAQs</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
+            {data.columns?.flatMap((col) => col.links).map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="hover:text-white transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
           <div className="self-end lg:self-center">
@@ -84,13 +83,16 @@ export default function Footer({ data = footerData }: FooterProps) {
               {data.missionNote}
             </p>
           </div>
-          <div className="shrink-0">
-            <Link
-              href="/contact#privacy"
-              className="hover:text-white transition-colors"
-            >
-              Privacy
-            </Link>
+          <div className="shrink-0 flex items-center gap-4">
+            {data.bottomLinks?.map((bLink) => (
+              <Link
+                key={bLink.name}
+                href={bLink.href}
+                className="hover:text-white transition-colors"
+              >
+                {bLink.name}
+              </Link>
+            ))}
           </div>
         </div>
 

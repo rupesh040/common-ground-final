@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import type { CommonGroundHeader1Data } from "@/types/content";
@@ -20,26 +21,24 @@ export default function Navbar({ data = headerData }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-3 group">
             <motion.div
-              whileHover={{ rotate: 12, scale: 1.1 }}
+              whileHover={{ rotate: 10, scale: 1.08 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className="text-[#143323]"
+              className="relative w-10 h-10 rounded-full overflow-hidden shadow-sm border border-[#D8DECF] shrink-0 bg-[#F7F7F0]"
             >
-              <svg
-                className="w-6 h-6 stroke-[#143323] fill-none stroke-[2.2]"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 21V11M12 11C12 7 9 4 5 4c0 4 3 7 7 7zm0 0c0-4 3-7 7-7 0 4-3 7-7 7z"
-                />
-              </svg>
+              <Image
+                src={data.logo?.image || "/images/logo-mark.jpg"}
+                alt={data.logo?.name || "common ground"}
+                width={40}
+                height={40}
+                priority
+                className="w-full h-full object-cover"
+              />
             </motion.div>
             <div className="flex flex-col leading-[0.92] font-bold text-[#143323] tracking-tight font-sans text-[17px]">
-              <span>common</span>
-              <span>ground.</span>
+              <span>{data.logo?.name?.split(" ")[0] || "common"}</span>
+              <span>{(data.logo?.name?.split(" ")[1] || "ground") + (data.logo?.dot || ".")}</span>
             </div>
           </Link>
 

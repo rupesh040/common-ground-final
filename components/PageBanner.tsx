@@ -79,11 +79,25 @@ export default function PageBanner({ data }: PageBannerProps) {
                 </svg>
               </div>
               <span className="text-[12.5px] font-bold text-[#143323] leading-tight font-sans">
-                Good things
-                <br />
-                <span className="italic font-serif font-normal text-[13.5px]">
-                  grow together.
-                </span>
+                {(() => {
+                  const badgeText = data.circularBadgeText || "Good things grow together.";
+                  const words = badgeText.split(" ");
+                  const firstPart = words.slice(0, 2).join(" ");
+                  const secondPart = words.slice(2).join(" ");
+                  return (
+                    <>
+                      {firstPart}
+                      {secondPart && (
+                        <>
+                          <br />
+                          <span className="italic font-serif font-normal text-[13.5px]">
+                            {secondPart}
+                          </span>
+                        </>
+                      )}
+                    </>
+                  );
+                })()}
               </span>
             </div>
           </motion.div>

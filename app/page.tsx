@@ -1,22 +1,24 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ComponentRenderer from "@/components/ComponentRenderer";
-import { homePageComponentsList, headerData, footerData } from "@/lib/content";
+import Hero from "@/components/Hero";
+import Ticker from "@/components/Ticker";
+import About from "@/components/About";
+import Causes from "@/components/Causes";
+import RootedInCare from "@/components/RootedInCare";
+import VolunteerCTA from "@/components/VolunteerCTA";
+import FAQ from "@/components/FAQ";
+import Blog from "@/components/Blog";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F7F0]">
-      <Navbar data={headerData} />
-      <main className="flex-1">
-        {homePageComponentsList.map((compRef, index) => (
-          <ComponentRenderer
-            key={`${compRef.key}-${compRef.component}-${index}`}
-            componentRef={compRef}
-          />
-        ))}
-      </main> 
-      <Footer data={footerData} />
-    </div>
+    <>
+      <Hero />
+      <Ticker />
+      <About />
+      <Causes />
+      <RootedInCare />
+      <VolunteerCTA />
+      <FAQ />
+      <Blog />
+    </>
   );
 }

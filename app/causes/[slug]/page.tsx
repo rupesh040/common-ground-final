@@ -1,10 +1,8 @@
 import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import CauseDetailView from "@/components/CauseDetailView";
 import PreFooterCTA from "@/components/PreFooterCTA";
-import { getCauseBySlug, getAllCauses, headerData, footerData } from "@/lib/content";
+import { getCauseBySlug, getAllCauses } from "@/lib/content";
 
 export async function generateStaticParams() {
   const causes = getAllCauses();
@@ -45,27 +43,23 @@ export default function CauseDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F7F0]">
-      <Navbar data={headerData} />
-      <main className="flex-1">
-        <Suspense
-          fallback={
-            <div className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
-              <div className="h-4 bg-[#E2E6DA] rounded w-32 mb-8" />
-              <div className="h-6 bg-[#E2E6DA] rounded-full w-28 mb-4" />
-              <div className="h-12 bg-[#E2E6DA] rounded-xl w-3/4 mb-6" />
-              <div className="h-4 bg-[#E2E6DA] rounded w-full mb-3" />
-              <div className="h-4 bg-[#E2E6DA] rounded w-2/3 mb-10" />
-              <div className="aspect-[16/9] bg-[#E2E6DA] rounded-[28px] w-full" />
-            </div>
-          }
-        >
-          <CauseContent params={params} />
-        </Suspense>
-        <PreFooterCTA />
-      </main>
-      <Footer data={footerData} />
-    </div>
+    <>
+      <Suspense
+        fallback={
+          <div className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
+            <div className="h-4 bg-[#E2E6DA] rounded w-32 mb-8" />
+            <div className="h-6 bg-[#E2E6DA] rounded-full w-28 mb-4" />
+            <div className="h-12 bg-[#E2E6DA] rounded-xl w-3/4 mb-6" />
+            <div className="h-4 bg-[#E2E6DA] rounded w-full mb-3" />
+            <div className="h-4 bg-[#E2E6DA] rounded w-2/3 mb-10" />
+            <div className="aspect-[16/9] bg-[#E2E6DA] rounded-[28px] w-full" />
+          </div>
+        }
+      >
+        <CauseContent params={params} />
+      </Suspense>
+      <PreFooterCTA />
+    </>
   );
 }
 

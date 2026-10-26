@@ -1,0 +1,12 @@
+Font assets are self-hosted for reliable, offline-friendly rendering.
+
+dm-sans.woff2: DM Sans Latin variable font from Google Fonts. Weights 400-700.
+Source: https://fonts.google.com/specimen/DM+Sans
+CDN: https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2
+
+libre-caslon-italic.woff2: DM Serif Display italic, weight 400, Latin subset.
+The compatibility filename is retained for the project's stylesheet.
+Source: https://fonts.google.com/specimen/DM+Serif+Display
+CDN: https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFhOHM81r4j6k0gjAW3mujVU2B2G_VB0PD2.woff2
+
+Both fonts are licensed under the included SIL Open Font License files.
