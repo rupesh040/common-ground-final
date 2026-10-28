@@ -14,7 +14,6 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
     <section className="py-20 lg:py-28 bg-[#F4F3EE] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
           <motion.div
             initial={{ opacity: 0, x: -30, scale: 0.96 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -23,7 +22,6 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
             className="lg:col-span-5"
           >
             <div className="relative w-full aspect-square rounded-[36px] bg-[#D4EAA2] p-10 sm:p-14 flex flex-col justify-between overflow-hidden shadow-xs border border-[#C2DB91] hover:shadow-md transition-shadow">
-              
               <div>
                 <h2 className="font-editorial text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#143323] leading-[1.05]">
                   {data.leftCard.word1}
@@ -33,11 +31,9 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
                   </span>
                 </h2>
               </div>
-
               <p className="text-sm sm:text-base font-medium text-[#143323]/80 max-w-[240px] relative z-10 font-sans">
                 {data.leftCard.tagline}
               </p>
-
               <motion.div
                 initial={{ opacity: 0, rotate: -10 }}
                 whileInView={{ opacity: 0.45, rotate: 0 }}
@@ -58,12 +54,9 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
                   <path d="M70 150 C95 150, 115 135, 125 120" />
                 </svg>
               </motion.div>
-
             </div>
           </motion.div>
-
           <div className="lg:col-span-7">
-            
             <motion.span
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +66,6 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
             >
               {data.eyebrow}
             </motion.span>
-
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +79,6 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
                 {data.headingItalic}
               </span>
             </motion.h3>
-
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +88,6 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
             >
               {data.description}
             </motion.p>
-
             <div className="divide-y divide-[#E2E6DA]">
               {data.steps.map((step, idx) => (
                 <motion.div
@@ -113,7 +103,6 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
                       <circle cx="4" cy="4" r="3" />
                     </svg>
                   </div>
-
                   <div>
                     <h4 className="text-lg font-bold text-[#143323] mb-1">
                       {step.title}
@@ -125,9 +114,7 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
                 </motion.div>
               ))}
             </div>
-
           </div>
-
         </div>
       </div>
     </section>

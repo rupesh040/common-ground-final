@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+        <radialGradient id="bgGrad" cx="38%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#F7FAF0" />
+      <stop offset="65%" stop-color="#E8F1DC" />
+      <stop offset="100%" stop-color="#D7E7C5" />
+    </radialGradient>
+
+        <linearGradient id="forestGrad" x1="20" y1="52" x2="35" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0A2415" />
+      <stop offset="100%" stop-color="#1B4D31" />
+    </linearGradient>
+
+        <linearGradient id="limeGrad" x1="26" y1="42" x2="48" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6F9D1A" />
+      <stop offset="50%" stop-color="#93CC2D" />
+      <stop offset="100%" stop-color="#BEEA58" />
+    </linearGradient>
+
+        <radialGradient id="sunGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FFF275" />
+      <stop offset="70%" stop-color="#F5B700" />
+      <stop offset="100%" stop-color="#E08E00" />
+    </radialGradient>
+
+        <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#0A2415" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+    <circle cx="32" cy="32" r="31" fill="url(#bgGrad)" stroke="#CFDFBD" stroke-width="1.2" />
+
+    <path d="M19 49.5C23.5 51.5 40.5 51.5 45 49.5" stroke="#123B24" stroke-width="2.2" stroke-linecap="round" />
+  <path d="M25 53.5C28 54.5 36 54.5 39 53.5" stroke="#8CBF28" stroke-width="1.6" stroke-linecap="round" opacity="0.8" />
+
+    <path d="M32 49V34" stroke="url(#forestGrad)" stroke-width="2.5" stroke-linecap="round" />
+
+    <path d="M32 41C21 41 15.5 32 17 21C26.5 22.5 32 29 32 41Z" fill="url(#forestGrad)" filter="url(#softGlow)" />
+
+    <path d="M32 35C43 34 47.5 24 46 14C37.5 15.5 31.5 24 32 35Z" fill="url(#limeGrad)" />
+
+    <path d="M32 26C29 19 33 12 36.5 9.5C38 15 35.5 21 32 26Z" fill="#143E26" />
+
+    <path d="M33.5 27C37 23 41 18.5 44 16" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.6" />
+
+    <circle cx="26.5" cy="14" r="2.5" fill="url(#sunGrad)" />
+</svg>
+

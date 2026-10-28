@@ -14,7 +14,6 @@ export default function About({ data = aboutData }: AboutProps) {
   return (
     <section id="about" className="py-20 lg:py-28 bg-[#F7F7F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,9 +25,7 @@ export default function About({ data = aboutData }: AboutProps) {
             {data.eyebrow}
           </span>
         </motion.div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +42,6 @@ export default function About({ data = aboutData }: AboutProps) {
               </span>
             </h2>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +54,6 @@ export default function About({ data = aboutData }: AboutProps) {
                 {p}
               </p>
             ))}
-
             <div className="flex flex-wrap items-center gap-6 pt-4">
               {data.links.map((link, idx) => (
                 <Link
@@ -79,7 +74,6 @@ export default function About({ data = aboutData }: AboutProps) {
               ))}
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

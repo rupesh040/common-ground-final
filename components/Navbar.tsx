@@ -28,7 +28,7 @@ export default function Navbar({ data = headerData }: NavbarProps) {
               className="relative w-10 h-10 rounded-full overflow-hidden shadow-sm border border-[#D8DECF] shrink-0 bg-[#F7F7F0]"
             >
               <Image
-                src={data.logo?.image || "/images/logo-mark.jpg"}
+                src={data.logo?.image || "/images/logo-creative.svg"}
                 alt={data.logo?.name || "common ground"}
                 width={40}
                 height={40}
@@ -65,7 +65,7 @@ export default function Navbar({ data = headerData }: NavbarProps) {
             })}
           </nav>
 
-          <div className="hidden sm:flex items-center">
+          <div className="hidden lg:flex items-center">
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
               <Link
                 href={data.button.href}
@@ -86,13 +86,7 @@ export default function Navbar({ data = headerData }: NavbarProps) {
             </motion.div>
           </div>
 
-          <div className="lg:hidden flex items-center gap-3">
-            <Link
-              href={data.button.href}
-              className="sm:hidden px-4 py-1.5 rounded-full bg-[#D4EAA2] text-[#143323] text-xs font-semibold"
-            >
-              {data.button.text}
-            </Link>
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-[#143323] hover:bg-[#E2E6DA]/50 transition-colors cursor-pointer"

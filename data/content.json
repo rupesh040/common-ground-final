@@ -128,7 +128,7 @@
               "name": "common ground",
               "dot": ".",
               "subtitle": "Planting hope, growing change",
-              "image": "/images/logo-mark.jpg"
+              "image": "/images/logo-creative.svg"
             },
             "navLinks": [
               { "name": "Home", "href": "/", "active": true },
@@ -409,7 +409,7 @@
               "name": "common ground",
               "dot": ".",
               "tagline": "Small acts. Lasting change.",
-              "image": "/images/logo-mark.jpg"
+              "image": "/images/logo-creative.svg"
             },
             "columns": [
               {

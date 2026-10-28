@@ -1,10 +1,8 @@
 "use client";
-
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { PageBannerData } from "@/types/content";
-
 interface PageBannerProps {
   data: PageBannerData;
 }
@@ -13,9 +11,24 @@ export default function PageBanner({ data }: PageBannerProps) {
   const breadcrumbParts = data.breadcrumb.split("/").map((p) => p.trim());
 
   return (
-    <section className="pt-8 pb-10 lg:pt-10 lg:pb-14 bg-[#f1f4e8] border-[1px] border-[#E5E8DF] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section className="relative pt-8 pb-10 lg:pt-12 lg:pb-16 bg-gradient-to-b from-[#EDF4E5] via-[#F2F6EA] to-[#F7F7F0] border-b border-[#E2E6DA]/80 overflow-hidden">
+      <div
+        className="absolute top-0 right-12 -translate-y-1/3 w-96 h-96 rounded-full bg-[#D4EAA2]/40 blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -bottom-10 left-10 w-80 h-80 rounded-full bg-[#DFECDE]/50 blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_0%,rgba(255,255,255,0.45),transparent)] pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#F7F7F0] to-transparent pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,9 +45,7 @@ export default function PageBanner({ data }: PageBannerProps) {
             </React.Fragment>
           ))}
         </motion.nav>
-
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,7 +55,6 @@ export default function PageBanner({ data }: PageBannerProps) {
             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#55685A] block mb-3.5">
               {data.eyebrow}
             </span>
-
             <h1 className="font-editorial text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#143323] leading-[1.08] mb-5">
               {data.headingPart1}
               <br />
@@ -52,12 +62,10 @@ export default function PageBanner({ data }: PageBannerProps) {
                 {data.headingItalic}
               </span>
             </h1>
-
             <p className="text-base sm:text-lg text-[#55685A] leading-relaxed max-w-2xl">
               {data.subtitle}
             </p>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, scale: 0.85, rotate: -6 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -101,9 +109,7 @@ export default function PageBanner({ data }: PageBannerProps) {
               </span>
             </div>
           </motion.div>
-
         </div>
-
       </div>
     </section>
   );

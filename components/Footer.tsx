@@ -31,7 +31,7 @@ export default function Footer({ data = footerData }: FooterProps) {
             <Link href="/" className="flex items-center gap-3 group mb-3">
               <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-sm border border-white/20 shrink-0 bg-[#F7F7F0] transition-transform duration-200 group-hover:scale-105">
                 <Image
-                  src={data.logo?.image || "/images/logo-mark.jpg"}
+                  src={data.logo?.image || "/images/logo-creative.svg"}
                   alt={data.logo?.name || "common ground"}
                   width={40}
                   height={40}
