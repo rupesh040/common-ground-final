@@ -42,12 +42,12 @@ export default function FAQPageSection({ data = faqPageSectionData }: FAQPageSec
                   <a
                     key={group.id}
                     href={`#${group.id}`}
-                    className="flex items-center justify-between p-3 rounded-xl hover:bg-white/80 text-xs sm:text-sm font-semibold text-[#143323] border border-transparent hover:border-[#DCDAD0] transition-all"
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-white/80 text-xs sm:text-sm font-semibold text-[#143323] border border-transparent hover:border-[#DCDAD0] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323]"
                   >
                     <span>
                       {group.numberPrefix} {group.categoryTitle}
                     </span>
-                    <svg className="w-3.5 h-3.5 text-[#143323]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 text-[#143323]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M7 17L17 7M17 7H9M17 7v8" />
                     </svg>
                   </a>
@@ -65,15 +65,15 @@ export default function FAQPageSection({ data = faqPageSectionData }: FAQPageSec
               <h3 className="font-editorial text-2xl font-bold text-[#143323] mb-2">
                 {data.sidebarBox.title}
               </h3>
-              <p className="text-xs sm:text-sm text-[#55685A] leading-relaxed mb-5">
+              <p className="text-xs sm:text-sm text-[#4A5D50] leading-relaxed mb-5">
                 {data.sidebarBox.subtitle}
               </p>
               <Link
                 href={data.sidebarBox.linkHref}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#143323] hover:text-[#0F281B] transition-colors border-b border-[#143323]/40 pb-0.5"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#143323] hover:text-[#0F281B] transition-colors border-b border-[#143323]/40 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
               >
                 <span>{data.sidebarBox.linkText}</span>
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M7 17L17 7M17 7H9M17 7v8" />
                 </svg>
               </Link>
@@ -91,7 +91,7 @@ export default function FAQPageSection({ data = faqPageSectionData }: FAQPageSec
                 transition={{ duration: 0.5, delay: groupIdx * 0.1 }}
                 className="scroll-mt-28"
               >
-                <span className="text-[10.5px] font-bold tracking-[0.18em] text-[#55685A] uppercase block mb-1">
+                <span className="text-[10.5px] font-bold tracking-[0.18em] text-[#4A5D50] uppercase block mb-1 font-sans">
                   {group.numberPrefix} / {group.categoryTag}
                 </span>
                 <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#143323] mb-6">
@@ -105,16 +105,17 @@ export default function FAQPageSection({ data = faqPageSectionData }: FAQPageSec
                       <div key={item.id} className="py-4">
                         <button
                           onClick={() => toggleItem(item.id)}
-                          className="w-full flex items-center justify-between text-left gap-4 py-1.5 group focus:outline-none cursor-pointer"
+                          className="w-full flex items-center justify-between text-left gap-4 py-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-lg px-2 -mx-2 cursor-pointer"
                           aria-expanded={isOpen}
                         >
-                          <span className="text-sm sm:text-base font-semibold text-[#143323] group-hover:text-[#3B651B] transition-colors">
+                          <span className="text-sm sm:text-base font-semibold text-[#143323] group-hover:text-[#235037] transition-colors">
                             {item.question}
                           </span>
                           <motion.span
                             animate={{ rotate: isOpen ? 90 : 0 }}
                             transition={{ duration: 0.2 }}
                             className="text-[#143323] text-xl font-light shrink-0"
+                            aria-hidden="true"
                           >
                             {isOpen ? "−" : "+"}
                           </motion.span>
@@ -129,7 +130,7 @@ export default function FAQPageSection({ data = faqPageSectionData }: FAQPageSec
                               transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                               className="overflow-hidden"
                             >
-                              <div className="pt-2 pb-3 pr-6 text-xs sm:text-sm text-[#55685A] leading-relaxed">
+                              <div className="pt-2 pb-3 pr-6 pl-2 text-xs sm:text-sm text-[#4A5D50] leading-relaxed">
                                 {item.answer}
                               </div>
                             </motion.div>

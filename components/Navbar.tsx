@@ -42,7 +42,7 @@ export default function Navbar({ data = headerData }: NavbarProps) {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-6" aria-label="Main Navigation">
             {data.navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -53,10 +53,10 @@ export default function Navbar({ data = headerData }: NavbarProps) {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-[13.5px] py-1 border-b-2 transition-all duration-200 ${
+                  className={`text-[13.5px] py-1 border-b-2 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs px-0.5 ${
                     isActive
                       ? "text-[#143323] font-bold border-[#143323]"
-                      : "text-[#55685A] border-transparent hover:text-[#143323] hover:border-[#143323]/40 font-medium"
+                      : "text-[#4A5D50] border-transparent hover:text-[#143323] hover:border-[#143323]/40 font-medium"
                   }`}
                 >
                   {link.name}
@@ -66,15 +66,16 @@ export default function Navbar({ data = headerData }: NavbarProps) {
           </nav>
 
           <div className="hidden lg:flex items-center">
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href={data.button.href}
-                className="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full bg-[#D4EAA2] text-[#143323] text-sm font-semibold tracking-tight hover:bg-[#C5E18E] transition-colors shadow-xs"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 min-h-[40px] rounded-full bg-[#D4EAA2] text-[#143323] text-sm font-semibold tracking-tight hover:bg-[#C2E073] transition-colors shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2"
               >
                 <span>{data.button.text}</span>
                 <svg
                   className="w-4 h-4 fill-none stroke-current stroke-2"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -89,15 +90,16 @@ export default function Navbar({ data = headerData }: NavbarProps) {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-[#143323] hover:bg-[#E2E6DA]/50 transition-colors cursor-pointer"
+              className="p-2.5 rounded-lg text-[#143323] hover:bg-[#E2E6DA]/60 transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323]"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
@@ -125,10 +127,10 @@ export default function Navbar({ data = headerData }: NavbarProps) {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                    className={`flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-base font-medium transition-colors ${
                       isActive
-                        ? "bg-[#D4EAA2]/50 text-[#143323] font-bold"
-                        : "text-[#55685A] hover:bg-[#E2E6DA]/40 hover:text-[#143323]"
+                        ? "bg-[#D4EAA2]/60 text-[#143323] font-bold"
+                        : "text-[#4A5D50] hover:bg-[#E2E6DA]/50 hover:text-[#143323]"
                     }`}
                   >
                     {link.name}
@@ -139,7 +141,7 @@ export default function Navbar({ data = headerData }: NavbarProps) {
                 <Link
                   href={data.button.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#D4EAA2] text-[#143323] font-semibold text-sm"
+                  className="w-full min-h-[44px] flex items-center justify-center gap-2 py-3 rounded-full bg-[#D4EAA2] text-[#143323] font-semibold text-sm hover:bg-[#C2E073] transition-colors shadow-xs"
                 >
                   <span>{data.button.text}</span>
                 </Link>

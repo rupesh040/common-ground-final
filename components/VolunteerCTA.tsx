@@ -12,7 +12,7 @@ interface VolunteerCTAProps {
 
 export default function VolunteerCTA({ data = volunteerCTAData }: VolunteerCTAProps) {
   return (
-    <section className="bg-[#143323] text-[#FAFBF7] py-20 lg:py-28 overflow-hidden relative">
+    <section aria-label="Volunteer" className="bg-[#143323] text-[#FAFBF7] py-20 lg:py-28 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -23,9 +23,10 @@ export default function VolunteerCTA({ data = volunteerCTAData }: VolunteerCTAPr
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8"
           >
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4EAA2] block mb-4 font-sans">
-              {data.eyebrow}
-            </span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D0EA87] animate-pulse" aria-hidden="true" />
+              <span>{data.eyebrow}</span>
+            </div>
 
             <h2 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] mb-6">
               {data.headingPart1}
@@ -35,30 +36,30 @@ export default function VolunteerCTA({ data = volunteerCTAData }: VolunteerCTAPr
               </span>
             </h2>
 
-            <p className="text-xs sm:text-sm tracking-wider uppercase text-[#FAFBF7]/70 font-semibold mb-9 font-sans">
+            <p className="text-xs sm:text-sm tracking-wider uppercase text-[#FAFBF7]/90 font-semibold mb-9 font-sans">
               {data.subtitle}
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
                 <Link
                   href={data.primaryButton.href}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#D4EAA2] text-[#143323] font-semibold text-sm hover:bg-[#C2E073] transition-colors shadow-lg"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 min-h-[44px] rounded-full bg-[#D4EAA2] text-[#143323] font-semibold text-sm hover:bg-[#C2E073] transition-colors shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] focus-visible:ring-offset-2 focus-visible:ring-offset-[#143323]"
                 >
                   <span>{data.primaryButton.text}</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </Link>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
                 <Link
                   href={data.secondaryButton.href}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 min-h-[44px] rounded-full border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#143323]"
                 >
                   <span>{data.secondaryButton.text}</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -78,6 +79,7 @@ export default function VolunteerCTA({ data = volunteerCTAData }: VolunteerCTAPr
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="w-44 h-44 text-[#D4EAA2] mb-4"
+              aria-hidden="true"
             >
               <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
                 <circle cx="50" cy="30" r="14" strokeDasharray="1 1" />
@@ -92,7 +94,7 @@ export default function VolunteerCTA({ data = volunteerCTAData }: VolunteerCTAPr
               </svg>
             </motion.div>
 
-            <p className="font-editorial italic text-base sm:text-lg text-[#D4EAA2]/90 max-w-xs">
+            <p className="font-editorial italic text-base sm:text-lg text-[#D4EAA2] max-w-xs">
               &ldquo;{data.floralQuote}&rdquo;
             </p>
 

@@ -19,17 +19,26 @@ export default function CauseDetailView({ data }: CauseDetailViewProps) {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex items-center gap-2 text-xs font-medium text-[#55685A] mb-8 font-sans"
+          aria-label="Breadcrumb"
+          className="mb-8 font-sans"
         >
-          <Link href="/" className="hover:text-[#143323] transition-colors">
-            Home
-          </Link>
-          <span className="text-[#A3B1A7]">/</span>
-          <Link href="/causes" className="hover:text-[#143323] transition-colors">
-            Our Causes
-          </Link>
-          <span className="text-[#A3B1A7]">/</span>
-          <span className="text-[#143323] font-semibold">{data.title}</span>
+          <ol className="flex items-center flex-wrap gap-2 text-xs font-medium text-[#4A5D50]">
+            <li>
+              <Link href="/" className="hover:text-[#143323] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded px-1 -mx-1">
+                Home
+              </Link>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-[#96A89B]" aria-hidden="true">/</span>
+              <Link href="/causes" className="hover:text-[#143323] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded px-1 -mx-1">
+                Our Causes
+              </Link>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-[#96A89B]" aria-hidden="true">/</span>
+              <span aria-current="page" className="text-[#143323] font-semibold">{data.title}</span>
+            </li>
+          </ol>
         </motion.nav>
 
         <motion.div
@@ -38,13 +47,13 @@ export default function CauseDetailView({ data }: CauseDetailViewProps) {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#55685A] block mb-3 font-sans">
-            {data.category}
-          </span>
-          <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#143323] leading-[1.15] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <span>{data.category}</span>
+          </div>
+          <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#143323] leading-[1.12] mb-4">
             {data.title}
           </h1>
-          <p className="text-base sm:text-lg text-[#55685A] leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-[#4A5D50] leading-relaxed max-w-2xl">
             {data.subtitle}
           </p>
         </motion.div>
@@ -77,18 +86,18 @@ export default function CauseDetailView({ data }: CauseDetailViewProps) {
               <span className="font-editorial text-3xl sm:text-4xl font-bold text-[#143323] block mb-1">
                 {stat.value}
               </span>
-              <span className="text-xs sm:text-sm text-[#55685A]">
+              <span className="text-xs sm:text-sm text-[#4A5D50] font-medium">
                 {stat.label}
               </span>
             </div>
           ))}
         </motion.div>
 
-        <div className="prose prose-lg max-w-none text-[#55685A] leading-relaxed mb-16">
+        <div className="prose prose-lg max-w-none text-[#4A5D50] leading-relaxed mb-16">
           <h2 className="font-editorial text-3xl font-bold text-[#143323] mb-4">
             Our Approach &amp; Focus
           </h2>
-          <p className="text-base sm:text-lg text-[#55685A] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#4A5D50] leading-relaxed">
             {data.mission}
           </p>
         </div>
@@ -111,7 +120,7 @@ export default function CauseDetailView({ data }: CauseDetailViewProps) {
                 <h3 className="font-editorial text-xl font-bold text-[#143323] mb-2">
                   {init.title}
                 </h3>
-                <p className="text-sm text-[#55685A] leading-relaxed">
+                <p className="text-sm text-[#4A5D50] leading-relaxed">
                   {init.description}
                 </p>
               </motion.div>

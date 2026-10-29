@@ -4,10 +4,16 @@
   --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
   --font-serif: var(--font-serif), Georgia, serif;
   --bg-canvas: #F4F3EE;
+  --bg-canvas-light: #F7F7F0;
   --color-forest: #143323;
+  --color-forest-dark: #0D2218;
+  --color-forest-light: #1C412E;
   --color-lime: #D0EA87;
   --color-lime-soft: #D4EAA2;
+  --color-lime-hover: #C2E073;
   --color-badge: #CEE795;
+  --color-muted: #4A5D50;
+  --color-border: #E2E6DA;
 }
 
 body {
@@ -25,15 +31,37 @@ body {
   --color-brand-forest-light: #1C412E;
   --color-brand-lime: #D0EA87;
   --color-brand-lime-hover: #C2E073;
+  --color-brand-lime-soft: #D4EAA2;
   --color-brand-lime-light: #E7F3D0;
   --color-brand-badge: #CEE795;
   --color-brand-cream: #F4F3EE;
-  --color-brand-muted: #55685A;
+  --color-brand-cream-light: #F7F7F0;
+  --color-brand-cream-pure: #FAFBF7;
+  --color-brand-muted: #4A5D50;
+  --color-brand-muted-light: #6B7E72;
   --color-brand-border: #E2E6DA;
+  --color-brand-border-dark: #1F4532;
 
   --color-team-sage: #D8E6D3;
   --color-team-olive: #DEE8BC;
   --color-team-cream: #F1EBD6;
+}
+
+/* Accessible focus ring utilities */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #F4F3EE, 0 0 0 4px #143323;
+}
+
+.focus-ring-dark {
+  outline: none;
+}
+.focus-ring-dark:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #143323, 0 0 0 4px #D0EA87;
 }
 
 @keyframes marquee {

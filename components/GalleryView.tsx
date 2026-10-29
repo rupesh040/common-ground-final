@@ -70,24 +70,26 @@ export default function GalleryView({ data = gallerySectionData }: GalleryViewPr
           className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12"
         >
           
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter gallery by category">
             {data.categories.map((cat) => {
               const isActive = activeCategory === cat.value;
               return (
                 <button
                   key={cat.value}
+                  type="button"
+                  aria-pressed={isActive}
                   onClick={() => {
                     setActiveCategory(cat.value);
                     setActiveImageIndex(null);
                   }}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer ${
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 min-h-[40px] rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 ${
                     isActive
                       ? "bg-[#143323] text-[#FAFBF7] shadow-xs scale-[1.02]"
-                      : "bg-white text-[#55685A] border border-[#E2E6DA] hover:border-[#143323] hover:text-[#143323]"
+                      : "bg-white text-[#4A5D50] border border-[#E2E6DA] hover:border-[#143323] hover:text-[#143323]"
                   }`}
                 >
                   <span>{cat.label}</span>
-                  <span className={`text-[10px] ${isActive ? "text-[#D0EA87]" : "text-[#8D9F92]"}`}>
+                  <span className={`text-[10px] font-bold ${isActive ? "text-[#D0EA87]" : "text-[#7B8F80]"}`}>
                     {cat.count}
                   </span>
                 </button>
@@ -95,7 +97,7 @@ export default function GalleryView({ data = gallerySectionData }: GalleryViewPr
             })}
           </div>
 
-          <span className="text-xs text-[#55685A] font-medium self-end sm:self-auto">
+          <span className="text-xs text-[#4A5D50] font-medium self-end sm:self-auto">
             {filteredItems.length} {filteredItems.length === 1 ? "image" : "images"} to explore
           </span>
         </motion.div>
@@ -111,8 +113,8 @@ export default function GalleryView({ data = gallerySectionData }: GalleryViewPr
               transition={{ duration: 0.45, delay: index * 0.08 }}
               whileHover={{ y: -6 }}
               onClick={() => setActiveImageIndex(index)}
-              className="group relative w-full aspect-[16/11] rounded-3xl overflow-hidden bg-[#E8EDE2] shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer text-left focus:outline-hidden focus:ring-4 focus:ring-[#84A936]/40"
-              aria-label={`Open photo ${index + 1} in popup`}
+              className="group relative w-full aspect-[16/11] rounded-3xl overflow-hidden bg-[#E8EDE2] shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#143323]/40"
+              aria-label={`Open photo ${index + 1}: ${item.title || "Gallery image"} in popup`}
             >
               <Image
                 src={item.image}
@@ -121,8 +123,8 @@ export default function GalleryView({ data = gallerySectionData }: GalleryViewPr
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300 pointer-events-none flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-white/90 text-[#143323] text-xs font-semibold backdrop-blur-xs shadow-md">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-white/95 text-[#143323] text-xs font-semibold backdrop-blur-xs shadow-md">
                   View Photo
                 </span>
               </div>
@@ -130,7 +132,7 @@ export default function GalleryView({ data = gallerySectionData }: GalleryViewPr
           ))}
         </div>
 
-        <p className="text-xs text-[#55685A]/80 text-center sm:text-left max-w-2xl border-t border-[#E2E6DA] pt-8">
+        <p className="text-xs text-[#4A5D50] text-center sm:text-left max-w-2xl border-t border-[#E2E6DA] pt-8 leading-relaxed">
           {data.footerNote}
         </p>
 

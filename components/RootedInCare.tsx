@@ -31,7 +31,7 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
                   </span>
                 </h2>
               </div>
-              <p className="text-sm sm:text-base font-medium text-[#143323]/80 max-w-[240px] relative z-10 font-sans">
+              <p className="text-sm sm:text-base font-medium text-[#143323]/85 max-w-[240px] relative z-10 font-sans leading-relaxed">
                 {data.leftCard.tagline}
               </p>
               <motion.div
@@ -40,6 +40,7 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="absolute -bottom-8 -right-8 w-64 h-64 pointer-events-none text-[#143323]"
+                aria-hidden="true"
               >
                 <svg
                   viewBox="0 0 200 200"
@@ -57,15 +58,18 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
             </div>
           </motion.div>
           <div className="lg:col-span-7">
-            <motion.span
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#55685A] block mb-3 font-sans"
+              className="mb-4"
             >
-              {data.eyebrow}
-            </motion.span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase shadow-xs font-sans">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
+                <span>{data.eyebrow}</span>
+              </div>
+            </motion.div>
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +88,7 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-base sm:text-lg text-[#55685A] leading-relaxed mb-10 max-w-xl"
+              className="text-base sm:text-lg text-[#4A5D50] leading-relaxed mb-10 max-w-xl"
             >
               {data.description}
             </motion.p>
@@ -96,18 +100,16 @@ export default function RootedInCare({ data = rootedInCareData }: RootedInCarePr
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 + idx * 0.12 }}
-                  className="py-6 first:pt-0 last:pb-0 flex items-start gap-4"
+                  className="py-6 first:pt-0 last:pb-0 flex items-start gap-4 group"
                 >
-                  <div className="w-5 h-5 rounded-full bg-[#143323] text-[#D4EAA2] flex items-center justify-center shrink-0 mt-1">
-                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" />
-                    </svg>
+                  <div className="w-7 h-7 rounded-full bg-[#143323] text-[#D4EAA2] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold font-sans shadow-2xs" aria-hidden="true">
+                    {idx + 1}
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-[#143323] mb-1">
                       {step.title}
                     </h4>
-                    <p className="text-sm sm:text-base text-[#55685A] leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#4A5D50] leading-relaxed">
                       {step.description}
                     </p>
                   </div>

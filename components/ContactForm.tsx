@@ -60,9 +60,10 @@ Thank you for connecting with Common Ground!`;
             className="lg:col-span-6 flex flex-col justify-between"
           >
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#55685A] block mb-3">
-                {data.leftEyebrow}
-              </span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
+                <span>{data.leftEyebrow}</span>
+              </div>
 
               <h2 className="font-editorial text-4xl sm:text-5xl font-bold tracking-tight text-[#143323] leading-tight mb-5">
                 {data.leftHeadingPart1}
@@ -72,7 +73,7 @@ Thank you for connecting with Common Ground!`;
                 </span>
               </h2>
 
-              <p className="text-base text-[#55685A] leading-relaxed mb-8">
+              <p className="text-base text-[#4A5D50] leading-relaxed mb-8">
                 {data.leftDescription}
               </p>
 
@@ -82,7 +83,7 @@ Thank you for connecting with Common Ground!`;
                     <h3 className="text-base font-bold text-[#143323] mb-1">
                       {feat.title}
                     </h3>
-                    <p className="text-sm text-[#55685A] leading-relaxed">
+                    <p className="text-sm text-[#4A5D50] leading-relaxed">
                       {feat.description}
                     </p>
                   </div>
@@ -92,7 +93,7 @@ Thank you for connecting with Common Ground!`;
               <div className="mb-10">
                 <Link
                   href={data.faqLink.href}
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-[#143323] hover:text-[#3B651B] transition-colors border-b border-[#143323]/30 pb-0.5"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors border-b border-[#143323]/30 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
                 >
                   <span>{data.faqLink.text}</span>
                   <svg
@@ -100,6 +101,7 @@ Thank you for connecting with Common Ground!`;
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -134,7 +136,7 @@ Thank you for connecting with Common Ground!`;
           >
             <div className="bg-[#EAE8DF] rounded-[32px] p-8 sm:p-10 border border-[#DCDAD0] shadow-xs">
               
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#55685A] block mb-2 font-sans">
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4A5D50] block mb-2 font-sans">
                 {data.formEyebrow}
               </span>
 
@@ -145,7 +147,7 @@ Thank you for connecting with Common Ground!`;
                 </span>
               </h3>
 
-              <div className="rounded-xl bg-[#E5EBDD] p-4 text-xs text-[#3E5243] leading-relaxed mb-6 border border-[#D5E3C7]">
+              <div className="rounded-xl bg-[#E5EBDD] p-4 text-xs text-[#2F4434] leading-relaxed mb-6 border border-[#D5E3C7]">
                 {data.formNotice}
               </div>
 
@@ -161,7 +163,7 @@ Thank you for connecting with Common Ground!`;
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Alex Taylor"
-                      className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#E2E6DA] text-sm text-[#143323] placeholder:text-[#9FB0A4] focus:outline-none focus:ring-2 focus:ring-[#D0EA87] transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#E2E6DA] text-sm text-[#143323] placeholder:text-[#7A8E80] focus:outline-none focus:ring-2 focus:ring-[#143323] focus:border-[#143323] transition-all"
                     />
                   </div>
 
@@ -175,7 +177,7 @@ Thank you for connecting with Common Ground!`;
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="alex@example.com"
-                      className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#E2E6DA] text-sm text-[#143323] placeholder:text-[#9FB0A4] focus:outline-none focus:ring-2 focus:ring-[#D0EA87] transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#E2E6DA] text-sm text-[#143323] placeholder:text-[#7A8E80] focus:outline-none focus:ring-2 focus:ring-[#143323] focus:border-[#143323] transition-all"
                     />
                   </div>
                 </div>
@@ -187,7 +189,7 @@ Thank you for connecting with Common Ground!`;
                   <select
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#E2E6DA] text-sm text-[#143323] focus:outline-none focus:ring-2 focus:ring-[#D0EA87] transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#E2E6DA] text-sm text-[#143323] focus:outline-none focus:ring-2 focus:ring-[#143323] focus:border-[#143323] transition-all"
                   >
                     {data.formSubjects.map((subj, idx) => (
                       <option key={idx} value={subj}>
@@ -207,17 +209,18 @@ Thank you for connecting with Common Ground!`;
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell us about your idea or how you'd like to get involved..."
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2E6DA] text-sm text-[#143323] placeholder:text-[#9FB0A4] focus:outline-none focus:ring-2 focus:ring-[#D0EA87] transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2E6DA] text-sm text-[#143323] placeholder:text-[#7A8E80] focus:outline-none focus:ring-2 focus:ring-[#143323] focus:border-[#143323] transition-all"
                   />
                 </div>
 
-                <p className="text-[11px] text-[#55685A]">* Required fields</p>
+                <p className="text-[11px] text-[#4A5D50] font-medium">* Required fields</p>
 
                 {status && (
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-3 rounded-xl bg-[#EAF2D7] text-xs font-semibold text-[#143323] border border-[#D0EA87]"
+                    role="status"
+                    className="p-3.5 rounded-xl bg-[#EAF2D7] text-xs font-semibold text-[#143323] border border-[#CCE0B2] shadow-2xs"
                   >
                     {status}
                   </motion.div>
@@ -227,10 +230,10 @@ Thank you for connecting with Common Ground!`;
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#143323] text-[#FAFBF7] font-semibold text-sm hover:bg-[#1C412E] transition-colors shadow-sm cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 min-h-[44px] rounded-full bg-[#143323] text-[#FAFBF7] font-semibold text-sm hover:bg-[#1C412E] transition-all shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 cursor-pointer"
                 >
                   <span>{data.submitButtonText}</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </motion.button>

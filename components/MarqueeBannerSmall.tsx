@@ -23,6 +23,7 @@ export default function MarqueeBannerSmall({
               animate={{ rotate: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
               className="w-8 h-8 text-[#143323] shrink-0 hidden sm:block"
+              aria-hidden="true"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
                 <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14" strokeLinecap="round" />
@@ -46,7 +47,7 @@ export default function MarqueeBannerSmall({
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Link
               href={data.link.href}
-              className="group inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#143323] hover:text-[#0F281B] transition-colors whitespace-nowrap border-b border-[#143323]/40 pb-0.5"
+              className="group inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#143323] hover:text-[#0F281B] transition-colors whitespace-nowrap border-b border-[#143323]/40 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 rounded-xs"
             >
               <span>{data.link.text}</span>
               <svg
@@ -54,6 +55,7 @@ export default function MarqueeBannerSmall({
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
