@@ -9,9 +9,10 @@ import { contactSectionData } from "@/lib/content";
 
 interface ContactFormProps {
   data?: ContactSectionData;
+  className?: string;
 }
 
-export default function ContactForm({ data = contactSectionData }: ContactFormProps) {
+export default function ContactForm({ data = contactSectionData, className = "" }: ContactFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState(data.formSubjects[0]);
@@ -48,7 +49,7 @@ Thank you for connecting with Common Ground!`;
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-[#F4F3EE] overflow-hidden">
+    <section className={`py-6 bg-[#F4F3EE] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           

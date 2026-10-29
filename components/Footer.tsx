@@ -9,6 +9,7 @@ import { footerData } from "@/lib/content";
 
 interface FooterProps {
   data?: CommonGroundFooter1Data;
+  className?: string;
 }
 
 function SocialIcon({ icon }: { icon: string }) {
@@ -42,7 +43,7 @@ function SocialIcon({ icon }: { icon: string }) {
   }
 }
 
-export default function Footer({ data = footerData }: FooterProps) {
+export default function Footer({ data = footerData, className = "" }: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -50,7 +51,7 @@ export default function Footer({ data = footerData }: FooterProps) {
   const backToTopLabel = (data.backToTopText || "Back to top").replace(/↑/g, "").trim();
 
   return (
-    <footer className="bg-[#143323] text-[#FAFBF7] pt-16 pb-12 border-t border-[#1F4532] overflow-hidden">
+    <footer className={`bg-[#143323] text-[#FAFBF7] py-6 border-t border-[#1F4532] overflow-hidden ${className}`}>
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -60,19 +61,18 @@ export default function Footer({ data = footerData }: FooterProps) {
       >
         <div className="flex flex-col lg:flex-row items-start justify-between gap-12 pb-14 border-b border-[#1F4532]">
           
-          {/* Brand Info */}
           <div className="flex flex-col items-start max-w-sm">
-            <Link href="/" className="flex items-center gap-3 group mb-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded-lg">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-sm border border-white/20 shrink-0 bg-[#F7F7F0] transition-transform duration-200 group-hover:scale-105">
+            <Link href="/" className="flex items-center gap-3.5 group mb-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded-lg">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-sm border border-white/20 shrink-0 bg-[#F7F7F0] transition-transform duration-200 group-hover:scale-105">
                 <Image
                   src={data.logo?.image || "/images/logo-creative.svg"}
                   alt={data.logo?.name || "common ground"}
-                  width={40}
-                  height={40}
+                  width={48}
+                  height={48}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex flex-col leading-[0.92] font-bold text-white tracking-tight font-sans text-[17px]">
+              <div className="flex flex-col leading-[0.92] font-bold text-white tracking-tight font-sans text-[20px] sm:text-[22px]">
                 <span>{data.logo?.name?.split(" ")[0] || "common"}</span>
                 <span>{(data.logo?.name?.split(" ")[1] || "ground") + (data.logo?.dot || ".")}</span>
               </div>
@@ -81,7 +81,6 @@ export default function Footer({ data = footerData }: FooterProps) {
               {data.logo?.tagline}
             </p>
 
-            {/* Social Links */}
             {data.social && data.social.length > 0 && (
               <div className="flex items-center gap-2.5">
                 {data.social.map((s: SocialLink) => (
@@ -100,7 +99,6 @@ export default function Footer({ data = footerData }: FooterProps) {
             )}
           </div>
 
-          {/* Grouped Nav Columns */}
           <div className="grid grid-cols-2 sm:grid-cols-2 gap-10 sm:gap-16">
             {data.columns?.map((col, idx) => (
               <div key={idx} className="flex flex-col space-y-3">
@@ -123,7 +121,6 @@ export default function Footer({ data = footerData }: FooterProps) {
             ))}
           </div>
 
-          {/* Back to Top */}
           <div className="self-start lg:self-center">
             <motion.button
               whileHover={{ y: -3 }}
@@ -141,7 +138,6 @@ export default function Footer({ data = footerData }: FooterProps) {
 
         </div>
 
-        {/* Bottom Credits & Legal */}
         <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#A4BCAB] leading-relaxed">
           <div>
             <p className="font-medium text-[#D8E4DC] mb-1">{data.copyright}</p>

@@ -9,14 +9,19 @@ import { heroData } from "@/lib/content";
 
 interface HeroProps {
   data?: CommonGroundHero1Data;
+  className?: string;
 }
 
-export default function Hero({ data = heroData }: HeroProps) {
+export default function Hero({ data = heroData, className = "" }: HeroProps) {
   const heroBgColor = data.bgColor || "#F7F7F0";
+
+  const badgeWords = (data.circularBadge?.badgeText || "Good things grow together.").split(" ");
+  const badgeFirstPart = badgeWords.slice(0, 2).join(" ");
+  const badgeSecondPart = badgeWords.slice(2).join(" ");
 
   return (
     <section
-      className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 bg-[#F7F7F0]"
+      className={`relative overflow-hidden py-6 bg-[#F7F7F0] ${className}`}
       style={{ backgroundColor: heroBgColor }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +47,7 @@ export default function Hero({ data = heroData }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-              className="font-editorial text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#143323] leading-[1.08] mb-6"
+              className="font-editorial text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#143323] leading-[1.08] mb-8"
             >
               {data.headingPart1}
               <br />
@@ -59,38 +64,19 @@ export default function Hero({ data = heroData }: HeroProps) {
               </span>
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-lg sm:text-xl text-[#4A5D50] leading-relaxed max-w-xl mb-9"
-            >
-              {data.description}
-            </motion.p>
-
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex flex-wrap items-center gap-4 mb-12 w-full sm:w-auto"
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="flex flex-wrap items-center gap-3.5 mb-10 w-full sm:w-auto"
             >
               <Link
                 href={data.primaryButton.href}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 min-h-[44px] rounded-full bg-[#143323] text-[#FAFBF7] font-semibold text-sm hover:bg-[#0D2218] transition-all duration-200 shadow-sm hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 min-h-[44px] rounded-full bg-[#143323] text-[#FAFBF7] font-semibold text-sm hover:bg-[#0D2218] transition-all duration-200 shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2"
               >
                 <span>{data.primaryButton.text}</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
-
-              <Link
-                href={data.secondaryButton.href}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 min-h-[44px] rounded-full border border-[#143323]/30 text-[#143323] font-semibold text-sm hover:bg-[#143323]/5 transition-all duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2"
-              >
-                <span>{data.secondaryButton.text}</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
             </motion.div>
@@ -152,14 +138,14 @@ export default function Hero({ data = heroData }: HeroProps) {
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               whileHover={{ scale: 1.06, rotate: 4 }}
               transition={{ duration: 0.6, delay: 0.45, type: "spring", stiffness: 180 }}
-              className="absolute -bottom-6 -left-6 sm:bottom-4 sm:-left-8 z-20 cursor-default"
+              className="absolute -bottom-4 -left-2 sm:bottom-4 sm:-left-8 z-20 cursor-default"
             >
               <div
-                className="relative w-36 h-36 rounded-full bg-[#D4EAA2] p-4 flex flex-col items-center justify-center text-center shadow-xl border-2 border-dashed border-[#143323]/25"
+                className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#D4EAA2] p-3 sm:p-4 flex flex-col items-center justify-center text-center shadow-xl border-2 border-dashed border-[#143323]/25"
               >
-                <div className="text-[#143323] mb-1.5" aria-hidden="true">
+                <div className="text-[#143323] mb-1 sm:mb-1.5" aria-hidden="true">
                   <svg
-                    className="w-6 h-6 stroke-[#143323] fill-none stroke-[2.2]"
+                    className="w-5 h-5 sm:w-6 sm:h-6 stroke-[#143323] fill-none stroke-[2.2]"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -169,12 +155,16 @@ export default function Hero({ data = heroData }: HeroProps) {
                     />
                   </svg>
                 </div>
-                <span className="text-[12px] font-bold text-[#143323] leading-tight font-sans">
-                  Good things
-                  <br />
-                  <span className="italic font-serif font-normal text-[13.5px]">
-                    grow together.
-                  </span>
+                <span className="text-[11px] sm:text-[12px] font-bold text-[#143323] leading-tight font-sans">
+                  {badgeFirstPart}
+                  {badgeSecondPart && (
+                    <>
+                      <br />
+                      <span className="italic font-serif font-normal text-[12px] sm:text-[13.5px]">
+                        {badgeSecondPart}
+                      </span>
+                    </>
+                  )}
                 </span>
               </div>
             </motion.div>

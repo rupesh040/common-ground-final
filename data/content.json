@@ -142,7 +142,7 @@
             ],
             "button": {
               "text": "Donate",
-              "href": "/contact#donate"
+              "href": ""
             }
           }
         }
@@ -154,14 +154,9 @@
             "eyebrow": "SEEKING JUSTICE, NURTURING PEACE",
             "headingPart1": "A better world",
             "headingPart2": "starts with us.",
-            "description": "Join our hands to give hope and joy to people in rural India, promising a bright and transformative future together.",
             "primaryButton": {
               "text": "Become a Volunteer",
               "href": "/contact"
-            },
-            "secondaryButton": {
-              "text": "Explore More",
-              "href": "/about-us"
             },
             "socialProof": {
               "donorsCount": "100+",
@@ -175,7 +170,8 @@
             "image": "/images/hero_hands_sprout.jpg",
             "circularBadge": {
               "curvedText": "HOPE & HEALING FOR COMMUNITIES • HOPE & HEALING •",
-              "icon": "sprout"
+              "icon": "sprout",
+              "badgeText": "Good things grow together."
             }
           }
         }
@@ -202,6 +198,32 @@
             "headingPart1": "Good things happen",
             "headingPart2": "when we",
             "headingItalic": "come together.",
+            "cards": [
+              {
+                "id": "purpose",
+                "tag": "01 // PURPOSE",
+                "icon": "✦",
+                "title": "Partnering for Real Change",
+                "description": "We believe in a world where everyone has the chance to thrive. We create lasting change by partnering with communities, providing resources, and driving sustainable development.",
+                "bottomTag": "Community-Driven Development"
+              },
+              {
+                "id": "action",
+                "tag": "02 // ACTION",
+                "icon": "✦",
+                "title": "Sustainable Initiatives",
+                "description": "Our programmes empower communities through education, healthcare, and economic initiatives designed to lift families out of poverty and protect our shared environment.",
+                "bottomTag": "Holistic Rural Empowerment"
+              },
+              {
+                "id": "ethos",
+                "tag": "03 // ETHOS",
+                "icon": "★",
+                "title": "Rooted in Care",
+                "description": "Rooted in transparency, our community initiatives nurture long-term stability and sustainable local stewardship across rural regions.",
+                "badges": ["Grassroots", "Sustainable", "Transparent"]
+              }
+            ],
             "paragraphs": [
               "We believe in a world where everyone has the chance to thrive. We create lasting change by partnering with communities, providing resources, and driving sustainable development.",
               "Our programmes empower communities through education, healthcare, and economic initiatives designed to lift families out of poverty and protect our shared environment."

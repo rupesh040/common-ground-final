@@ -8,9 +8,10 @@ import { faqData } from "@/lib/content";
 
 interface FAQProps {
   data?: CommonGroundFAQ1Data;
+  className?: string;
 }
 
-export default function FAQ({ data = faqData }: FAQProps) {
+export default function FAQ({ data = faqData, className = "" }: FAQProps) {
   const [openId, setOpenId] = useState<string | null>(data.items[0]?.id || null);
 
   const toggleItem = (id: string) => {
@@ -18,7 +19,7 @@ export default function FAQ({ data = faqData }: FAQProps) {
   };
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#F4F3EE] overflow-hidden">
+    <section id="faq" className={`py-6 bg-[#F4F3EE] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           

@@ -7,14 +7,14 @@ import type { PageBannerData } from "@/types/content";
 
 interface PageBannerProps {
   data: PageBannerData;
+  className?: string;
 }
 
-export default function PageBanner({ data }: PageBannerProps) {
+export default function PageBanner({ data, className = "" }: PageBannerProps) {
   const breadcrumbParts = data.breadcrumb.split("/").map((p) => p.trim());
 
   return (
-    <section className="relative pt-8 pb-12 sm:pt-10 sm:pb-14 lg:pt-14 lg:pb-18 bg-gradient-to-b from-[#EDF4E5] via-[#F2F6EA] to-[#F7F7F0] border-b border-[#E2E6DA]/80 overflow-hidden">
-      {/* Soft atmospheric gradients */}
+    <section className={`relative py-6 bg-gradient-to-b from-[#EDF4E5] via-[#F2F6EA] to-[#F7F7F0] border-b border-[#E2E6DA]/80 overflow-hidden ${className}`}>
       <div
         className="absolute top-0 right-12 -translate-y-1/3 w-96 h-96 rounded-full bg-[#D4EAA2]/40 blur-3xl pointer-events-none"
         aria-hidden="true"
@@ -33,7 +33,6 @@ export default function PageBanner({ data }: PageBannerProps) {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Accessible Breadcrumbs */}
         <motion.nav
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,7 +91,6 @@ export default function PageBanner({ data }: PageBannerProps) {
             </p>
           </motion.div>
 
-          {/* Badge Stamp */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85, rotate: -6 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}

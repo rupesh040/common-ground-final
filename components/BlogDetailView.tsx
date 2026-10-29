@@ -8,11 +8,12 @@ import type { BlogDetailData } from "@/types/content";
 
 interface BlogDetailViewProps {
   data: BlogDetailData;
+  className?: string;
 }
 
-export default function BlogDetailView({ data }: BlogDetailViewProps) {
+export default function BlogDetailView({ data, className = "" }: BlogDetailViewProps) {
   return (
-    <article className="py-12 lg:py-20 bg-[#F7F7F0] overflow-hidden">
+    <article className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.nav

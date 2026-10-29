@@ -47,7 +47,6 @@ body {
   --color-team-cream: #F1EBD6;
 }
 
-/* Accessible focus ring utilities */
 .focus-ring {
   outline: none;
 }

@@ -8,11 +8,12 @@ import { volunteerCTAData } from "@/lib/content";
 
 interface VolunteerCTAProps {
   data?: CommonGroundVolunteerCTA1Data;
+  className?: string;
 }
 
-export default function VolunteerCTA({ data = volunteerCTAData }: VolunteerCTAProps) {
+export default function VolunteerCTA({ data = volunteerCTAData, className = "" }: VolunteerCTAProps) {
   return (
-    <section aria-label="Volunteer" className="bg-[#143323] text-[#FAFBF7] py-20 lg:py-28 overflow-hidden relative">
+    <section aria-label="Volunteer" className={`bg-[#143323] text-[#FAFBF7] py-6 overflow-hidden relative ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -31,9 +32,6 @@ export default function VolunteerCTA({ data = volunteerCTAData }: VolunteerCTAPr
             <h2 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] mb-6">
               {data.headingPart1}
               <br />
-              <span className="italic font-serif font-normal text-[#D4EAA2]">
-                {data.headingItalic}
-              </span>
             </h2>
 
             <p className="text-xs sm:text-sm tracking-wider uppercase text-[#FAFBF7]/90 font-semibold mb-9 font-sans">

@@ -9,11 +9,12 @@ import { blogData } from "@/lib/content";
 
 interface BlogProps {
   data?: CommonGroundBlog1Data;
+  className?: string;
 }
 
-export default function Blog({ data = blogData }: BlogProps) {
+export default function Blog({ data = blogData, className = "" }: BlogProps) {
   return (
-    <section id="blogs" className="py-16 lg:py-24 bg-[#F7F7F0] overflow-hidden">
+    <section id="blogs" className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div

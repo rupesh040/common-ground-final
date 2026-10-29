@@ -36,6 +36,7 @@ export interface SocialProof {
 export interface CircularBadgeData {
   curvedText: string;
   icon: string;
+  badgeText?: string;
 }
 
 export interface CommonGroundHero1Data {
@@ -43,9 +44,9 @@ export interface CommonGroundHero1Data {
   eyebrow: string;
   headingPart1: string;
   headingPart2: string;
-  description: string;
+  description?: string;
   primaryButton: ButtonLink;
-  secondaryButton: ButtonLink;
+  secondaryButton?: ButtonLink;
   socialProof: SocialProof;
   image: string;
   circularBadge: CircularBadgeData;
@@ -56,13 +57,24 @@ export interface CommonGroundTicker1Data {
   speedSeconds: number;
 }
 
+export interface AboutCardItem {
+  id?: string;
+  tag: string;
+  icon?: string;
+  title: string;
+  description: string;
+  bottomTag?: string;
+  badges?: string[];
+}
+
 export interface CommonGroundAbout1Data {
   eyebrow: string;
   headingPart1: string;
   headingPart2: string;
   headingItalic: string;
+  cards?: AboutCardItem[];
   paragraphs: string[];
-  links: TextLink[];
+  links?: TextLink[];
 }
 
 export interface CauseItem {

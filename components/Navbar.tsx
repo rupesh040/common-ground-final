@@ -21,22 +21,22 @@ export default function Navbar({ data = headerData }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-lg">
             <motion.div
               whileHover={{ rotate: 10, scale: 1.08 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className="relative w-10 h-10 rounded-full overflow-hidden shadow-sm border border-[#D8DECF] shrink-0 bg-[#F7F7F0]"
+              className="relative w-12 h-12 rounded-full overflow-hidden shadow-sm border border-[#D8DECF] shrink-0 bg-[#F7F7F0]"
             >
               <Image
                 src={data.logo?.image || "/images/logo-creative.svg"}
                 alt={data.logo?.name || "common ground"}
-                width={40}
-                height={40}
+                width={48}
+                height={48}
                 priority
                 className="w-full h-full object-cover"
               />
             </motion.div>
-            <div className="flex flex-col leading-[0.92] font-bold text-[#143323] tracking-tight font-sans text-[17px]">
+            <div className="flex flex-col leading-[0.92] font-bold text-[#143323] tracking-tight font-sans text-[20px] sm:text-[22px]">
               <span>{data.logo?.name?.split(" ")[0] || "common"}</span>
               <span>{(data.logo?.name?.split(" ")[1] || "ground") + (data.logo?.dot || ".")}</span>
             </div>

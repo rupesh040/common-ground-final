@@ -9,11 +9,12 @@ import { teamSectionData } from "@/lib/content";
 
 interface TeamGridProps {
   data?: TeamSectionData;
+  className?: string;
 }
 
-export default function TeamGrid({ data = teamSectionData }: TeamGridProps) {
+export default function TeamGrid({ data = teamSectionData, className = "" }: TeamGridProps) {
   return (
-    <section className="py-20 lg:py-28 bg-[#F7F7F0] overflow-hidden">
+    <section className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div
@@ -102,7 +103,7 @@ export default function TeamGrid({ data = teamSectionData }: TeamGridProps) {
           })}
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -157,7 +158,7 @@ export default function TeamGrid({ data = teamSectionData }: TeamGridProps) {
             </div>
 
           </div>
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>

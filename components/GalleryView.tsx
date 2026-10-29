@@ -8,9 +8,10 @@ import { gallerySectionData } from "@/lib/content";
 
 interface GalleryViewProps {
   data?: GallerySectionData;
+  className?: string;
 }
 
-export default function GalleryView({ data = gallerySectionData }: GalleryViewProps) {
+export default function GalleryView({ data = gallerySectionData, className = "" }: GalleryViewProps) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
 
@@ -60,7 +61,7 @@ export default function GalleryView({ data = gallerySectionData }: GalleryViewPr
     activeImageIndex !== null ? filteredItems[activeImageIndex] : null;
 
   return (
-    <section className="py-16 lg:py-24 bg-[#F7F7F0] overflow-hidden">
+    <section className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div

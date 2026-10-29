@@ -9,11 +9,12 @@ import { causesData } from "@/lib/content";
 
 interface CausesProps {
   data?: CommonGroundCauses1Data;
+  className?: string;
 }
 
-export default function Causes({ data = causesData }: CausesProps) {
+export default function Causes({ data = causesData, className = "" }: CausesProps) {
   return (
-    <section id="causes" className="py-20 lg:py-28 bg-[#F7F7F0]">
+    <section id="causes" className={`py-6 bg-[#F7F7F0] ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div
@@ -75,12 +76,10 @@ export default function Causes({ data = causesData }: CausesProps) {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
 
-                  {/* Frosted Index Tag */}
                   <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#143323] font-bold text-xs shadow-xs font-sans">
                     0{idx + 1}
                   </div>
 
-                  {/* Hover Arrow Indicator */}
                   <div className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-[#D4EAA2] text-[#143323] flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#C2E073] group-hover:scale-110" aria-hidden="true">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M7 17L17 7M17 7H9M17 7v8" />

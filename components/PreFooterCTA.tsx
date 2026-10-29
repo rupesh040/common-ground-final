@@ -8,15 +8,15 @@ import { preFooterCTAData } from "@/lib/content";
 
 interface PreFooterCTAProps {
   data?: PreFooterCTAData;
+  className?: string;
 }
 
-export default function PreFooterCTA({ data = preFooterCTAData }: PreFooterCTAProps) {
+export default function PreFooterCTA({ data = preFooterCTAData, className = "" }: PreFooterCTAProps) {
   return (
     <section
       aria-label="Call to action"
-      className="relative bg-gradient-to-br from-[#163827] via-[#10271C] to-[#143323] text-[#FAFBF7] py-16 sm:py-20 lg:py-24 border-t border-[#1F4532] overflow-hidden"
+      className={`relative bg-gradient-to-br from-[#163827] via-[#10271C] to-[#143323] text-[#FAFBF7] py-6 border-t border-[#1F4532] overflow-hidden ${className}`}
     >
-      {/* Ambient background accents */}
       <div
         className="absolute top-0 right-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-[#D0EA87]/10 blur-3xl pointer-events-none"
         aria-hidden="true"
@@ -26,7 +26,6 @@ export default function PreFooterCTA({ data = preFooterCTAData }: PreFooterCTAPr
         aria-hidden="true"
       />
 
-      {/* Decorative organic leaf watermark */}
       <div
         className="absolute right-6 -bottom-12 w-64 h-64 lg:w-80 lg:h-80 text-[#D0EA87]/[0.06] pointer-events-none select-none"
         aria-hidden="true"

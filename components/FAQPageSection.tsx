@@ -8,9 +8,10 @@ import { faqPageSectionData } from "@/lib/content";
 
 interface FAQPageSectionProps {
   data?: FAQPageSectionData;
+  className?: string;
 }
 
-export default function FAQPageSection({ data = faqPageSectionData }: FAQPageSectionProps) {
+export default function FAQPageSection({ data = faqPageSectionData, className = "" }: FAQPageSectionProps) {
   const [openIds, setOpenIds] = useState<Record<string, boolean>>({
     "faq-inv-1": true,
   });
@@ -23,7 +24,7 @@ export default function FAQPageSection({ data = faqPageSectionData }: FAQPageSec
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-[#F4F3EE]">
+    <section className={`py-6 bg-[#F4F3EE] ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
