@@ -12,7 +12,7 @@ export default function BlogListingPage() {
   return (
     <>
       <PageBanner data={bannerData} />
-      <Blog />
+      <Blog hideTopLink />
       <PreFooterCTA />
     </>
   );

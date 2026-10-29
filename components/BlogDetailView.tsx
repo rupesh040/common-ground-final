@@ -23,7 +23,7 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
           aria-label="Breadcrumb"
           className="mb-8 font-sans"
         >
-          <ol className="flex items-center flex-wrap gap-2 text-xs font-medium text-[#4A5D50]">
+          <ol className="flex items-center flex-wrap gap-2 text-[13.5px] font-medium text-[#4A5D50]">
             <li>
               <Link href="/" className="hover:text-[#143323] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded px-1 -mx-1">
                 Home
@@ -48,7 +48,7 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
             <span>{data.category}</span>
           </div>
 
@@ -79,7 +79,7 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
             <span className="text-sm font-bold text-[#143323] block">
               {data.author.name}
             </span>
-            <span className="text-xs text-[#4A5D50]">
+            <span className="text-[13.5px] text-[#4A5D50]">
               {data.author.role}
             </span>
           </div>
@@ -111,11 +111,11 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="p-8 rounded-3xl bg-[#EAE8DF] border border-[#DCDAD0] mb-12 shadow-2xs"
         >
           <h3 className="font-editorial text-2xl font-bold text-[#143323] mb-4">
-            Key Reflections &amp; Takeaways
+            {data.keyTakeawaysTitle || "Key Reflections & Takeaways"}
           </h3>
           <ul className="space-y-2.5">
             {data.keyTakeaways.map((point, idx) => (
@@ -129,7 +129,7 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
 
         <div className="pt-6 border-t border-[#E2E6DA] flex items-center justify-between">
           <Link
-            href="/blog"
+            href={data.backLink?.href || "/blog"}
             className="group inline-flex items-center gap-2 text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
           >
             <svg
@@ -141,14 +141,14 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            <span>Back to all articles</span>
+            <span>{data.backLink?.text || "Back to all articles"}</span>
           </Link>
 
           <Link
-            href="/contact"
-            className="text-xs font-bold text-[#143323] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs px-1 -mx-1"
+            href={data.contactLink?.href || "/contact"}
+            className="text-[13.5px] font-bold text-[#143323] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs px-1 -mx-1"
           >
-            Share an idea with us →
+            {data.contactLink?.text || "Share an idea with us →"}
           </Link>
         </div>
 

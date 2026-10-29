@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import type { ContactSectionData } from "@/types/content";
 import { contactSectionData } from "@/lib/content";
@@ -12,12 +11,63 @@ interface ContactFormProps {
   className?: string;
 }
 
+function ContactIcon({ icon }: { icon?: string }) {
+  switch (icon) {
+    case "email":
+      return (
+        <svg className="w-5 h-5 text-[#143323]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      );
+    case "phone":
+      return (
+        <svg className="w-5 h-5 text-[#143323]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      );
+    case "address":
+    default:
+      return (
+        <svg className="w-5 h-5 text-[#143323]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      );
+  }
+}
+
 export default function ContactForm({ data = contactSectionData, className = "" }: ContactFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState(data.formSubjects[0]);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<string | null>(null);
+
+  const contactItems = data.contactDetails && data.contactDetails.length > 0
+    ? data.contactDetails
+    : [
+        {
+          icon: "email",
+          label: "Email Us",
+          value: "info@zyx.com",
+          href: "mailto:info@zyx.com",
+          note: "Send us your inquiry anytime",
+        },
+        {
+          icon: "phone",
+          label: "Call Us",
+          value: "+1 000-000-000",
+          href: "tel:+1000000000",
+          note: "Mon – Fri, 9:00 AM – 5:00 PM EST",
+        },
+        {
+          icon: "address",
+          label: "Our Location",
+          value: "124 Community Way, Suite 300, Austin, TX 78701, USA",
+          href: "https://maps.google.com/?q=124+Community+Way+Suite+300+Austin+TX+78701",
+          note: "Open for scheduled community visits",
+        },
+      ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,7 +111,7 @@ Thank you for connecting with Common Ground!`;
             className="lg:col-span-6 flex flex-col justify-between"
           >
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
                 <span>{data.leftEyebrow}</span>
               </div>
@@ -78,53 +128,50 @@ Thank you for connecting with Common Ground!`;
                 {data.leftDescription}
               </p>
 
-              <div className="border-t border-[#E2E6DA] py-6 space-y-6">
-                {data.features.map((feat, idx) => (
-                  <div key={idx}>
-                    <h3 className="text-base font-bold text-[#143323] mb-1">
-                      {feat.title}
-                    </h3>
-                    <p className="text-sm text-[#4A5D50] leading-relaxed">
-                      {feat.description}
-                    </p>
-                  </div>
+              <div className="border-t border-[#E2E6DA] py-6 space-y-4 mb-6">
+                {contactItems.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: idx * 0.1, ease: "easeOut" }}
+                    whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                    className="flex items-start gap-4 p-4 rounded-2xl bg-white/70 border border-[#DCDAD0] hover:bg-white transition-colors shadow-2xs group"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-[#E5EED6] border border-[#CCE0B2] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                      <ContactIcon icon={item.icon} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[13.5px] font-bold uppercase tracking-[0.14em] text-[#4A5D50] block font-sans mb-0.5">
+                        {item.label}
+                      </span>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target={item.href.startsWith("http") ? "_blank" : undefined}
+                          rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="text-base sm:text-lg font-bold text-[#143323] hover:text-[#235037] hover:underline underline-offset-4 transition-colors break-words block"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="text-base sm:text-lg font-bold text-[#143323] leading-snug">
+                          {item.value}
+                        </p>
+                      )}
+                      {item.note && (
+                        <p className="text-[13.5px] text-[#7A8E80] mt-0.5">
+                          {item.note}
+                        </p>
+                      )}
+                    </div>
+                  </motion.div>
                 ))}
               </div>
-
-              <div className="mb-10">
-                <Link
-                  href={data.faqLink.href}
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors border-b border-[#143323]/30 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
-                >
-                  <span>{data.faqLink.text}</span>
-                  <svg
-                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </div>
             </div>
 
-            <div className="relative w-full aspect-[16/7] rounded-2xl overflow-hidden bg-[#E8EDE2] shadow-xs mt-4">
-              <Image
-                src={data.image}
-                alt="Community members connecting"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute bottom-3 left-4 right-4">
-                <p className="text-xs font-medium text-white/90 italic">
-                  {data.imageCaption}
-                </p>
-              </div>
-            </div>
+           
 
           </motion.div>
 
@@ -137,7 +184,7 @@ Thank you for connecting with Common Ground!`;
           >
             <div className="bg-[#EAE8DF] rounded-[32px] p-8 sm:p-10 border border-[#DCDAD0] shadow-xs">
               
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4A5D50] block mb-2 font-sans">
+              <span className="text-[13.5px] font-bold uppercase tracking-[0.18em] text-[#4A5D50] block mb-2 font-sans">
                 {data.formEyebrow}
               </span>
 
@@ -148,14 +195,14 @@ Thank you for connecting with Common Ground!`;
                 </span>
               </h3>
 
-              <div className="rounded-xl bg-[#E5EBDD] p-4 text-xs text-[#2F4434] leading-relaxed mb-6 border border-[#D5E3C7]">
+              <div className="rounded-xl bg-[#E5EBDD] p-4 text-[13.5px] text-[#2F4434] leading-relaxed mb-6 border border-[#D5E3C7]">
                 {data.formNotice}
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-[#143323] mb-1.5">
+                    <label className="block text-[13.5px] font-semibold text-[#143323] mb-1.5">
                       Your name *
                     </label>
                     <input
@@ -169,7 +216,7 @@ Thank you for connecting with Common Ground!`;
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#143323] mb-1.5">
+                    <label className="block text-[13.5px] font-semibold text-[#143323] mb-1.5">
                       Email address *
                     </label>
                     <input
@@ -184,7 +231,7 @@ Thank you for connecting with Common Ground!`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#143323] mb-1.5">
+                  <label className="block text-[13.5px] font-semibold text-[#143323] mb-1.5">
                     What&apos;s on your mind? *
                   </label>
                   <select
@@ -201,7 +248,7 @@ Thank you for connecting with Common Ground!`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#143323] mb-1.5">
+                  <label className="block text-[13.5px] font-semibold text-[#143323] mb-1.5">
                     Your message *
                   </label>
                   <textarea
@@ -214,14 +261,14 @@ Thank you for connecting with Common Ground!`;
                   />
                 </div>
 
-                <p className="text-[11px] text-[#4A5D50] font-medium">* Required fields</p>
+                <p className="text-[13.5px] text-[#4A5D50] font-medium">* Required fields</p>
 
                 {status && (
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     role="status"
-                    className="p-3.5 rounded-xl bg-[#EAF2D7] text-xs font-semibold text-[#143323] border border-[#CCE0B2] shadow-2xs"
+                    className="p-3.5 rounded-xl bg-[#EAF2D7] text-[13.5px] font-semibold text-[#143323] border border-[#CCE0B2] shadow-2xs"
                   >
                     {status}
                   </motion.div>

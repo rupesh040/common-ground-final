@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import type { CommonGroundBlog1Data } from "@/types/content";
 import { blogData } from "@/lib/content";
@@ -10,9 +11,12 @@ import { blogData } from "@/lib/content";
 interface BlogProps {
   data?: CommonGroundBlog1Data;
   className?: string;
+  hideTopLink?: boolean;
 }
 
-export default function Blog({ data = blogData, className = "" }: BlogProps) {
+export default function Blog({ data = blogData, className = "", hideTopLink = false }: BlogProps) {
+  const pathname = usePathname();
+  const shouldHideTopLink = hideTopLink || pathname === "/blog";
   return (
     <section id="blogs" className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,7 +29,7 @@ export default function Blog({ data = blogData, className = "" }: BlogProps) {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
         >
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
               <span>{data.eyebrow}</span>
             </div>
@@ -38,33 +42,35 @@ export default function Blog({ data = blogData, className = "" }: BlogProps) {
             </h2>
           </div>
 
-          <Link
-            href={data.topLink.href}
-            className="group inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors self-start md:self-end border-b border-[#143323]/30 pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
-          >
-            <span>{data.topLink.text}</span>
-            <svg
-              className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+          {!shouldHideTopLink && data.topLink && (
+            <Link
+              href={data.topLink.href}
+              className="group inline-flex items-center gap-2 text-[13.5px] sm:text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors self-start md:self-end border-b border-[#143323]/30 pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </Link>
+              <span>{data.topLink.text}</span>
+              <svg
+                className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+          )}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.items.map((item, idx) => (
             <motion.article
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: idx * 0.12, ease: "easeOut" }}
-              whileHover={{ y: -6 }}
-              className="group bg-white rounded-3xl p-6 border border-[#E2E6DA] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.55, delay: idx * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="group bg-white rounded-3xl p-6 border border-[#E2E6DA] shadow-xs hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between transform-gpu"
             >
               <div>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-[#E8EDE2]">
@@ -82,7 +88,7 @@ export default function Blog({ data = blogData, className = "" }: BlogProps) {
                   </div>
                 </div>
 
-                <div className="text-[11px] font-bold text-[#4A5D50] tracking-wider uppercase mb-2 font-sans">
+                <div className="text-[13.5px] font-bold text-[#4A5D50] tracking-wider uppercase mb-2 font-sans">
                   <span>{item.category || "JOURNAL"}</span>
                 </div>
 
@@ -92,7 +98,7 @@ export default function Blog({ data = blogData, className = "" }: BlogProps) {
                   </Link>
                 </h3>
 
-                <p className="text-xs sm:text-[13px] text-[#4A5D50] leading-relaxed mb-6">
+                <p className="text-[13.5px] text-[#4A5D50] leading-relaxed mb-6">
                   {item.description}
                 </p>
               </div>
@@ -100,7 +106,7 @@ export default function Blog({ data = blogData, className = "" }: BlogProps) {
               <div className="pt-4 border-t border-[#E2E6DA]">
                 <Link
                   href={item.href}
-                  className="group/link inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors min-h-[44px] py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded px-1 -mx-1"
+                  className="group/link inline-flex items-center gap-2 text-[13.5px] sm:text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors min-h-[44px] py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded px-1 -mx-1"
                 >
                   <span>{item.linkText}</span>
                   <svg
@@ -118,9 +124,11 @@ export default function Blog({ data = blogData, className = "" }: BlogProps) {
           ))}
         </div>
 
-        <p className="text-xs text-[#4A5D50] max-w-2xl border-t border-[#E2E6DA] pt-6 leading-relaxed">
-          A sample journal, written to inspire. These original articles explore everyday ideas and do not report actual Common Ground projects.
-        </p>
+        {data.disclaimer && (
+          <p className="text-[13.5px] text-[#4A5D50] max-w-2xl border-t border-[#E2E6DA] pt-6 mt-10 leading-relaxed">
+            {data.disclaimer}
+          </p>
+        )}
 
       </div>
     </section>

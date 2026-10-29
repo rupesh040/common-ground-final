@@ -47,7 +47,7 @@ export default function PreFooterCTA({ data = preFooterCTAData, className = "" }
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D0EA87] animate-pulse" aria-hidden="true" />
               <span>{data.eyebrow}</span>
             </div>
@@ -87,7 +87,7 @@ export default function PreFooterCTA({ data = preFooterCTAData, className = "" }
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
               <Link
                 href={data.secondaryLink.href}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[44px] rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/35 text-xs sm:text-sm font-semibold text-[#FAFBF7] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#143323]"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[44px] rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/35 text-[13.5px] sm:text-sm font-semibold text-[#FAFBF7] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#143323]"
               >
                 <span>{data.secondaryLink.text}</span>
                 <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

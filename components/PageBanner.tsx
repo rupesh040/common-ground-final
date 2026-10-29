@@ -40,7 +40,7 @@ export default function PageBanner({ data, className = "" }: PageBannerProps) {
           aria-label="Breadcrumb"
           className="mb-6 sm:mb-8"
         >
-          <ol className="flex items-center flex-wrap gap-2 text-xs font-medium text-[#4A5D50]">
+          <ol className="flex items-center flex-wrap gap-2 text-[13.5px] font-medium text-[#4A5D50]">
             <li>
               <Link
                 href="/"
@@ -73,7 +73,7 @@ export default function PageBanner({ data, className = "" }: PageBannerProps) {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E3EED0] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E3EED0] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
               <span>{data.eyebrow}</span>
             </div>
@@ -111,7 +111,7 @@ export default function PageBanner({ data, className = "" }: PageBannerProps) {
                   />
                 </svg>
               </div>
-              <span className="text-[12.5px] font-bold text-[#143323] leading-tight font-sans">
+              <span className="text-[13.5px] font-bold text-[#143323] leading-tight font-sans">
                 {(() => {
                   const badgeText = data.circularBadgeText || "Good things grow together.";
                   const words = badgeText.split(" ");

@@ -26,7 +26,7 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
           transition={{ duration: 0.6 }}
           className="max-w-4xl pb-10 sm:pb-12 border-b border-[#E2E6DA]"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.14em] uppercase mb-5 shadow-2xs font-sans">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.14em] uppercase mb-5 shadow-2xs font-sans">
             <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
             <span>{data.eyebrow}</span>
           </div>
@@ -59,26 +59,22 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
             return (
               <motion.div
                 key={card.id || idx}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: 0.1 * (idx + 1) }}
-                className={`group relative overflow-hidden p-7 sm:p-8 rounded-2xl bg-white hover:bg-gradient-to-br hover:from-[#EAF2DC] hover:via-[#E4EED1] hover:to-[#D8E8BF] border border-[#E2E6DA] hover:border-[#B5CE9E] shadow-xs hover:shadow-xl hover:shadow-[#143323]/[0.08] transition-all duration-300 ease-out hover:-translate-y-2 flex flex-col justify-between cursor-default ${
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.55, delay: idx * 0.1, ease: "easeOut" }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className={`group relative overflow-hidden p-7 sm:p-8 rounded-2xl bg-white hover:bg-[#F2F7E8] border border-[#E2E6DA] hover:border-[#B5CE9E] shadow-xs hover:shadow-xl hover:shadow-[#143323]/[0.08] transition-colors duration-300 flex flex-col justify-between cursor-default transform-gpu ${
                   isLast ? "md:col-span-2 lg:col-span-1" : ""
                 }`}
               >
-                <div
-                  className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#98BE76] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  aria-hidden="true"
-                />
-
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <span className="text-[11px] font-mono font-bold tracking-widest text-[#143323]/60 uppercase group-hover:text-[#143323] transition-colors">
+                    <span className="text-[13.5px] font-mono font-bold tracking-widest text-[#143323]/60 uppercase group-hover:text-[#143323] transition-colors">
                       {card.tag}
                     </span>
                     {card.icon && (
-                      <span className="w-8 h-8 rounded-full bg-[#E5EED6] text-[#143323] flex items-center justify-center text-xs font-bold font-sans transition-all duration-300 group-hover:bg-[#143323] group-hover:text-[#D4EAA2] group-hover:scale-110 group-hover:rotate-12 shadow-2xs">
+                      <span className="w-8 h-8 rounded-full bg-[#E5EED6] text-[#143323] flex items-center justify-center text-[13.5px] font-bold font-sans transition-all duration-300 group-hover:bg-[#143323] group-hover:text-[#D4EAA2] group-hover:scale-110 group-hover:rotate-12 shadow-2xs">
                         {card.icon}
                       </span>
                     )}
@@ -97,14 +93,14 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
                       {card.badges.map((badge, bIdx) => (
                         <span
                           key={bIdx}
-                          className="px-2.5 py-1 rounded-full bg-[#F4F6EE] group-hover:bg-white text-[10px] font-bold text-[#143323] tracking-wider uppercase border border-[#E2E6DA] group-hover:border-[#B5CE9E] shadow-2xs font-sans transition-all duration-200 group-hover:scale-105"
+                          className="px-2.5 py-1 rounded-full bg-[#F4F6EE] group-hover:bg-white text-[13.5px] font-bold text-[#143323] tracking-wider uppercase border border-[#E2E6DA] group-hover:border-[#B5CE9E] shadow-2xs font-sans transition-all duration-200 group-hover:scale-105"
                         >
                           {badge}
                         </span>
                       ))}
                     </div>
                   ) : card.bottomTag ? (
-                    <span className="text-xs font-semibold text-[#143323] flex items-center gap-2 font-sans">
+                    <span className="text-[13.5px] font-semibold text-[#143323] flex items-center gap-2 font-sans">
                       <span className="w-2 h-2 rounded-full bg-[#143323] group-hover:bg-[#143323] transition-transform duration-300 group-hover:scale-125" />
                       {card.bottomTag}
                     </span>

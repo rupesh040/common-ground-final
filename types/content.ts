@@ -94,7 +94,7 @@ export interface CommonGroundCauses1Data {
   headingItalic: string;
   topLink: TextLink;
   items: CauseItem[];
-  bottomButton: ButtonLink;
+  bottomButton?: ButtonLink;
 }
 
 export interface RootedStep {
@@ -156,7 +156,8 @@ export interface CommonGroundBlog1Data {
   eyebrow: string;
   headingPart1: string;
   headingItalic: string;
-  topLink: TextLink;
+  topLink?: TextLink;
+  disclaimer?: string;
   items: BlogItem[];
 }
 
@@ -171,6 +172,13 @@ export interface SocialLink {
   icon: string;
 }
 
+export interface FooterContactData {
+  title?: string;
+  email: string;
+  phone: string;
+  address: string;
+}
+
 export interface CommonGroundFooter1Data {
   logo: {
     name: string;
@@ -179,11 +187,12 @@ export interface CommonGroundFooter1Data {
     image?: string;
   };
   columns: FooterColumn[];
+  contact?: FooterContactData;
   social: SocialLink[];
   copyright: string;
-  missionNote: string;
+  missionNote?: string;
   backToTopText: string;
-  bottomLinks: NavLink[];
+  bottomLinks?: NavLink[];
 }
 
 export interface PageBannerData {
@@ -212,11 +221,13 @@ export interface MarqueeBannerSmallData {
 
 export interface TeamMemberRole {
   id: string;
+  name?: string;
+  position?: string;
   initials: string;
   roleTag: string;
   title: string;
   description: string;
-  noteBadge: string;
+  noteBadge?: string;
   bgVariant: "sage" | "olive" | "cream";
   image?: string;
 }
@@ -254,9 +265,13 @@ export interface GalleryFilterCategory {
 }
 
 export interface GallerySectionData {
-  categories: GalleryFilterCategory[];
+  categories?: GalleryFilterCategory[];
   items: GalleryItem[];
-  footerNote: string;
+  footerNote?: string;
+  loadMoreButtonText?: string;
+  viewPhotoText?: string;
+  initialCount?: number;
+  batchSize?: number;
 }
 
 export interface ContactFeatureItem {
@@ -264,13 +279,22 @@ export interface ContactFeatureItem {
   description: string;
 }
 
+export interface ContactDetailInfo {
+  icon?: string;
+  label: string;
+  value: string;
+  href?: string;
+  note?: string;
+}
+
 export interface ContactSectionData {
   leftEyebrow: string;
   leftHeadingPart1: string;
   leftHeadingItalic: string;
   leftDescription: string;
-  features: ContactFeatureItem[];
-  faqLink: ButtonLink;
+  contactDetails?: ContactDetailInfo[];
+  features?: ContactFeatureItem[];
+  faqLink?: ButtonLink;
   image: string;
   imageCaption: string;
   formEyebrow: string;
@@ -324,11 +348,14 @@ export interface BlogDetailData {
   heroImage: string;
   paragraphs: string[];
   keyTakeaways: string[];
+  keyTakeawaysTitle?: string;
   author: {
     name: string;
     role: string;
     avatar: string;
   };
+  backLink?: TextLink;
+  contactLink?: TextLink;
 }
 
 export interface SectionVariants {

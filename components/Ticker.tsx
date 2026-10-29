@@ -24,7 +24,7 @@ export default function Ticker({ data = tickerData }: TickerProps) {
               aria-hidden={isDuplicate ? "true" : undefined}
               className="flex items-center gap-8 whitespace-nowrap"
             >
-              <span className="text-xs sm:text-[13px] font-extrabold tracking-[0.2em] text-[#143323] uppercase font-sans">
+              <span className="text-[13.5px] font-extrabold tracking-[0.2em] text-[#143323] uppercase font-sans">
                 {item}
               </span>
               <span className="text-[#143323]/50 text-base leading-none font-bold" aria-hidden="true">

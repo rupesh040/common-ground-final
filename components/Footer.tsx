@@ -62,24 +62,25 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
         <div className="flex flex-col lg:flex-row items-start justify-between gap-12 pb-14 border-b border-[#1F4532]">
           
           <div className="flex flex-col items-start max-w-sm">
-            <Link href="/" className="flex items-center gap-3.5 group mb-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded-lg">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-sm border border-white/20 shrink-0 bg-[#F7F7F0] transition-transform duration-200 group-hover:scale-105">
+            <Link
+              href="/"
+              className="inline-flex items-center mb-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded-lg"
+              aria-label={`${data.logo?.name || "common ground"} home`}
+            >
+              <motion.div
+                whileHover={{ scale: 1.04 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                className="relative flex items-center"
+              >
                 <Image
-                  src={data.logo?.image || "/images/logo-creative.svg"}
+                  src={data.logo?.image || "/images/logo-dark.png"}
                   alt={data.logo?.name || "common ground"}
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-cover"
+                  width={175}
+                  height={50}
+                  className="h-10 sm:h-11 md:h-14 w-auto object-contain"
                 />
-              </div>
-              <div className="flex flex-col leading-[0.92] font-bold text-white tracking-tight font-sans text-[20px] sm:text-[22px]">
-                <span>{data.logo?.name?.split(" ")[0] || "common"}</span>
-                <span>{(data.logo?.name?.split(" ")[1] || "ground") + (data.logo?.dot || ".")}</span>
-              </div>
+              </motion.div>
             </Link>
-            <p className="text-xs text-[#A4BCAB] font-medium leading-relaxed mb-5">
-              {data.logo?.tagline}
-            </p>
 
             {data.social && data.social.length > 0 && (
               <div className="flex items-center gap-2.5">
@@ -99,13 +100,13 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
             )}
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-10 sm:gap-16">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 flex-1 max-w-2xl">
             {data.columns?.map((col, idx) => (
               <div key={idx} className="flex flex-col space-y-3">
-                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D0EA87] font-sans">
+                <span className="text-[13.5px] font-bold uppercase tracking-[0.18em] text-[#D0EA87] font-sans">
                   {col.title}
                 </span>
-                <ul className="space-y-2 text-xs sm:text-[13px] font-medium text-[#D8E4DC]">
+                <ul className="space-y-2 text-[13.5px] font-medium text-[#D8E4DC]">
                   {col.links.map((link) => (
                     <li key={link.name}>
                       <Link
@@ -119,6 +120,43 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
                 </ul>
               </div>
             ))}
+
+            <div className="col-span-2 sm:col-span-1 flex flex-col space-y-3">
+              <span className="text-[13.5px] font-bold uppercase tracking-[0.18em] text-[#D0EA87] font-sans">
+                {data.contact?.title || "Contact Us"}
+              </span>
+              <ul className="space-y-2.5 text-[13.5px] font-medium text-[#D8E4DC]">
+                <li>
+                  <a
+                    href={`mailto:${data.contact?.email || "info@zyx.com"}`}
+                    className="flex items-center gap-2 hover:text-[#D0EA87] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded group"
+                  >
+                    <svg className="w-3.5 h-3.5 text-[#D0EA87] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span className="break-all group-hover:underline underline-offset-2">{data.contact?.email || "info@zyx.com"}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`tel:${(data.contact?.phone || "+1 000-000-000").replace(/[^\d+]/g, "")}`}
+                    className="flex items-center gap-2 hover:text-[#D0EA87] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded group"
+                  >
+                    <svg className="w-3.5 h-3.5 text-[#D0EA87] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span className="group-hover:underline underline-offset-2">{data.contact?.phone || "+1 000-000-000"}</span>
+                  </a>
+                </li>
+                <li className="flex items-start gap-2 text-[#D8E4DC]/90">
+                  <svg className="w-3.5 h-3.5 text-[#D0EA87] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span className="leading-snug">{data.contact?.address || "124 Community Way, Suite 300, Austin, TX 78701"}</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div className="self-start lg:self-center">
@@ -127,7 +165,7 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
               whileTap={{ scale: 0.95 }}
               onClick={scrollToTop}
               aria-label="Scroll back to top of page"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/20 bg-white/5 text-xs font-semibold text-[#FAFBF7] hover:text-white hover:border-[#D0EA87] hover:bg-[#D0EA87]/10 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87]"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/20 bg-white/5 text-[13.5px] font-semibold text-[#FAFBF7] hover:text-white hover:border-[#D0EA87] hover:bg-[#D0EA87]/10 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87]"
             >
               <span>{backToTopLabel}</span>
               <svg className="w-3.5 h-3.5 text-[#D0EA87]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -138,23 +176,9 @@ export default function Footer({ data = footerData, className = "" }: FooterProp
 
         </div>
 
-        <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#A4BCAB] leading-relaxed">
+        <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[13.5px] text-[#A4BCAB] leading-relaxed">
           <div>
-            <p className="font-medium text-[#D8E4DC] mb-1">{data.copyright}</p>
-            <p className="max-w-2xl text-[11px] text-[#A4BCAB]/90">
-              {data.missionNote}
-            </p>
-          </div>
-          <div className="shrink-0 flex items-center gap-4">
-            {data.bottomLinks?.map((bLink) => (
-              <Link
-                key={bLink.name}
-                href={bLink.href}
-                className="hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D0EA87] rounded px-1 -mx-1 text-xs"
-              >
-                {bLink.name}
-              </Link>
-            ))}
+            <p className="font-medium text-[#D8E4DC]">{data.copyright}</p>
           </div>
         </div>
 

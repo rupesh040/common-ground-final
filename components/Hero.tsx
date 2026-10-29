@@ -1,11 +1,69 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, animate, useInView } from "framer-motion";
 import type { CommonGroundHero1Data } from "@/types/content";
 import { heroData } from "@/lib/content";
+
+function parseStatValue(raw: string) {
+  const match = raw.match(/^([^\d]*)([\d,.]+)(.*)$/);
+  if (!match) {
+    return { prefix: "", target: 0, suffix: raw, hasCommas: false, decimals: 0 };
+  }
+  const prefix = match[1] || "";
+  const numStr = match[2];
+  const suffix = match[3] || "";
+  const hasCommas = numStr.includes(",");
+  const cleanNumStr = numStr.replace(/,/g, "");
+  const target = parseFloat(cleanNumStr) || 0;
+  const decimals = cleanNumStr.includes(".") ? cleanNumStr.split(".")[1].length : 0;
+  return { prefix, target, suffix, hasCommas, decimals };
+}
+
+function formatStat(num: number, parsed: ReturnType<typeof parseStatValue>) {
+  let formatted = parsed.decimals > 0 ? num.toFixed(parsed.decimals) : Math.round(num).toString();
+  if (parsed.hasCommas) {
+    const parts = formatted.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    formatted = parts.join(".");
+  }
+  return `${parsed.prefix}${formatted}${parsed.suffix}`;
+}
+
+function AnimatedCount({ value, delay = 0.5 }: { value: string; delay?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const parsed = parseStatValue(value);
+  const [displayValue, setDisplayValue] = useState(() => formatStat(0, parsed));
+
+  useEffect(() => {
+    if (!isInView || parsed.target === 0) return;
+
+    let controls: { stop: () => void } | null = null;
+    const timeout = setTimeout(() => {
+      controls = animate(0, parsed.target, {
+        duration: 1.6,
+        ease: [0.16, 1, 0.3, 1],
+        onUpdate: (latest) => {
+          setDisplayValue(formatStat(latest, parsed));
+        },
+      });
+    }, delay * 1000);
+
+    return () => {
+      clearTimeout(timeout);
+      if (controls) controls.stop();
+    };
+  }, [isInView, parsed.target, delay]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {displayValue}
+    </span>
+  );
+}
 
 interface HeroProps {
   data?: CommonGroundHero1Data;
@@ -37,7 +95,7 @@ export default function Hero({ data = heroData, className = "" }: HeroProps) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-semibold tracking-wider uppercase mb-6 shadow-xs font-sans"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-semibold tracking-wider uppercase mb-6 shadow-xs font-sans"
             >
               <span className="w-2 h-2 rounded-full bg-[#143323] animate-pulse" aria-hidden="true" />
               <span>{data.eyebrow}</span>
@@ -106,9 +164,9 @@ export default function Hero({ data = heroData, className = "" }: HeroProps) {
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-bold text-[#143323]">
-                  {data.socialProof.donorsCount} Donors
+                  <AnimatedCount value={data.socialProof.donorsCount} delay={0.5} /> Donors
                 </span>
-                <span className="text-xs text-[#4A5D50]">
+                <span className="text-[13.5px] text-[#4A5D50]">
                   {data.socialProof.donorsLabel}
                 </span>
               </div>
@@ -155,12 +213,12 @@ export default function Hero({ data = heroData, className = "" }: HeroProps) {
                     />
                   </svg>
                 </div>
-                <span className="text-[11px] sm:text-[12px] font-bold text-[#143323] leading-tight font-sans">
+                <span className="text-[13.5px] font-bold text-[#143323] leading-tight font-sans">
                   {badgeFirstPart}
                   {badgeSecondPart && (
                     <>
                       <br />
-                      <span className="italic font-serif font-normal text-[12px] sm:text-[13.5px]">
+                      <span className="italic font-serif font-normal text-[13.5px]">
                         {badgeSecondPart}
                       </span>
                     </>

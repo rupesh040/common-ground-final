@@ -21,25 +21,25 @@ export default function Navbar({ data = headerData }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          <Link href="/" className="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-lg">
+          <Link
+            href="/"
+            className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-lg"
+            aria-label={`${data.logo?.name || "common ground"} home`}
+          >
             <motion.div
-              whileHover={{ rotate: 10, scale: 1.08 }}
+              whileHover={{ scale: 1.04 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className="relative w-12 h-12 rounded-full overflow-hidden shadow-sm border border-[#D8DECF] shrink-0 bg-[#F7F7F0]"
+              className="relative flex items-center"
             >
               <Image
-                src={data.logo?.image || "/images/logo-creative.svg"}
+                src={data.logo?.image || "/images/logo.png"}
                 alt={data.logo?.name || "common ground"}
-                width={48}
-                height={48}
+                width={175}
+                height={50}
                 priority
-                className="w-full h-full object-cover"
+                className="h-11 sm:h-12 md:h-14 w-auto object-contain"
               />
             </motion.div>
-            <div className="flex flex-col leading-[0.92] font-bold text-[#143323] tracking-tight font-sans text-[20px] sm:text-[22px]">
-              <span>{data.logo?.name?.split(" ")[0] || "common"}</span>
-              <span>{(data.logo?.name?.split(" ")[1] || "ground") + (data.logo?.dot || ".")}</span>
-            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6" aria-label="Main Navigation">

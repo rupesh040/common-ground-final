@@ -34,7 +34,7 @@ export default function FAQPageSection({ data = faqPageSectionData, className = 
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#55685A] block mb-4">
+              <span className="text-[13.5px] font-bold uppercase tracking-[0.18em] text-[#55685A] block mb-4">
                 {data.sidebarTitle}
               </span>
 
@@ -43,7 +43,7 @@ export default function FAQPageSection({ data = faqPageSectionData, className = 
                   <a
                     key={group.id}
                     href={`#${group.id}`}
-                    className="flex items-center justify-between p-3 rounded-xl hover:bg-white/80 text-xs sm:text-sm font-semibold text-[#143323] border border-transparent hover:border-[#DCDAD0] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323]"
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-white/80 text-[13.5px] sm:text-sm font-semibold text-[#143323] border border-transparent hover:border-[#DCDAD0] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323]"
                   >
                     <span>
                       {group.numberPrefix} {group.categoryTitle}
@@ -66,12 +66,12 @@ export default function FAQPageSection({ data = faqPageSectionData, className = 
               <h3 className="font-editorial text-2xl font-bold text-[#143323] mb-2">
                 {data.sidebarBox.title}
               </h3>
-              <p className="text-xs sm:text-sm text-[#4A5D50] leading-relaxed mb-5">
+              <p className="text-[13.5px] sm:text-sm text-[#4A5D50] leading-relaxed mb-5">
                 {data.sidebarBox.subtitle}
               </p>
               <Link
                 href={data.sidebarBox.linkHref}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#143323] hover:text-[#0F281B] transition-colors border-b border-[#143323]/40 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
+                className="inline-flex items-center gap-1.5 text-[13.5px] font-bold text-[#143323] hover:text-[#0F281B] transition-colors border-b border-[#143323]/40 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
               >
                 <span>{data.sidebarBox.linkText}</span>
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -80,7 +80,6 @@ export default function FAQPageSection({ data = faqPageSectionData, className = 
               </Link>
             </motion.div>
           </div>
-
           <div className="lg:col-span-8 space-y-16">
             {data.groups.map((group, groupIdx) => (
               <motion.div
@@ -92,9 +91,6 @@ export default function FAQPageSection({ data = faqPageSectionData, className = 
                 transition={{ duration: 0.5, delay: groupIdx * 0.1 }}
                 className="scroll-mt-28"
               >
-                <span className="text-[10.5px] font-bold tracking-[0.18em] text-[#4A5D50] uppercase block mb-1 font-sans">
-                  {group.numberPrefix} / {group.categoryTag}
-                </span>
                 <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#143323] mb-6">
                   {group.categoryTitle}
                 </h3>
@@ -131,7 +127,7 @@ export default function FAQPageSection({ data = faqPageSectionData, className = 
                               transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                               className="overflow-hidden"
                             >
-                              <div className="pt-2 pb-3 pr-6 pl-2 text-xs sm:text-sm text-[#4A5D50] leading-relaxed">
+                              <div className="pt-2 pb-3 pr-6 pl-2 text-[13.5px] sm:text-sm text-[#4A5D50] leading-relaxed">
                                 {item.answer}
                               </div>
                             </motion.div>

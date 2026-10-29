@@ -12,7 +12,7 @@ export default function CausesPage() {
   return (
     <>
       <PageBanner data={bannerData} />
-      <Causes />
+      <Causes hideTopLink />
       <PreFooterCTA />
     </>
   );

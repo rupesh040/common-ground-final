@@ -12,27 +12,36 @@ interface GalleryViewProps {
 }
 
 export default function GalleryView({ data = gallerySectionData, className = "" }: GalleryViewProps) {
-  const [activeCategory, setActiveCategory] = useState("all");
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
 
-  const filteredItems =
-    activeCategory === "all"
-      ? data.items
-      : data.items.filter((item) => item.category === activeCategory);
+  const items = data.items || [];
+  const initialCount = data.initialCount ?? 4;
+  const batchSize = data.batchSize ?? 4;
+  const loadMoreText = data.loadMoreButtonText || "Load More";
+  const viewPhotoText = data.viewPhotoText || "View Photo";
+
+  const [visibleCount, setVisibleCount] = useState<number>(initialCount);
+
+  const visibleItems = items.slice(0, visibleCount);
+  const hasMore = visibleCount < items.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + batchSize, items.length));
+  };
 
   const handlePrev = useCallback(() => {
     setActiveImageIndex((prev) => {
       if (prev === null) return null;
-      return (prev - 1 + filteredItems.length) % filteredItems.length;
+      return (prev - 1 + visibleItems.length) % visibleItems.length;
     });
-  }, [filteredItems.length]);
+  }, [visibleItems.length]);
 
   const handleNext = useCallback(() => {
     setActiveImageIndex((prev) => {
       if (prev === null) return null;
-      return (prev + 1) % filteredItems.length;
+      return (prev + 1) % visibleItems.length;
     });
-  }, [filteredItems.length]);
+  }, [visibleItems.length]);
 
   const handleClose = useCallback(() => {
     setActiveImageIndex(null);
@@ -58,63 +67,23 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
   }, [activeImageIndex, handlePrev, handleNext, handleClose]);
 
   const currentModalItem =
-    activeImageIndex !== null ? filteredItems[activeImageIndex] : null;
+    activeImageIndex !== null ? visibleItems[activeImageIndex] : null;
 
   return (
     <section className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12"
-        >
-          
-          <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter gallery by category">
-            {data.categories.map((cat) => {
-              const isActive = activeCategory === cat.value;
-              return (
-                <button
-                  key={cat.value}
-                  type="button"
-                  aria-pressed={isActive}
-                  onClick={() => {
-                    setActiveCategory(cat.value);
-                    setActiveImageIndex(null);
-                  }}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2 min-h-[40px] rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 ${
-                    isActive
-                      ? "bg-[#143323] text-[#FAFBF7] shadow-xs scale-[1.02]"
-                      : "bg-white text-[#4A5D50] border border-[#E2E6DA] hover:border-[#143323] hover:text-[#143323]"
-                  }`}
-                >
-                  <span>{cat.label}</span>
-                  <span className={`text-[10px] font-bold ${isActive ? "text-[#D0EA87]" : "text-[#7B8F80]"}`}>
-                    {cat.count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          <span className="text-xs text-[#4A5D50] font-medium self-end sm:self-auto">
-            {filteredItems.length} {filteredItems.length === 1 ? "image" : "images"} to explore
-          </span>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-16">
-          {filteredItems.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-8">
+          {visibleItems.map((item, index) => (
             <motion.button
               key={item.id}
               type="button"
               layout
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
+              transition={{ duration: 0.45, delay: (index % 4) * 0.08 }}
               whileHover={{ y: -6 }}
               onClick={() => setActiveImageIndex(index)}
-              className="group relative w-full aspect-[16/11] rounded-3xl overflow-hidden bg-[#E8EDE2] shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#143323]/40"
+              className="group relative w-full aspect-[16/11] rounded-3xl overflow-hidden bg-[#E8EDE2] shadow-xs hover:shadow-xl transition-shadow duration-300 cursor-pointer text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#143323]/40"
               aria-label={`Open photo ${index + 1}: ${item.title || "Gallery image"} in popup`}
             >
               <Image
@@ -125,18 +94,35 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-white/95 text-[#143323] text-xs font-semibold backdrop-blur-xs shadow-md">
-                  View Photo
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-white/95 text-[#143323] text-[13.5px] font-semibold backdrop-blur-xs shadow-md">
+                  {viewPhotoText}
                 </span>
               </div>
             </motion.button>
           ))}
         </div>
 
-        <p className="text-xs text-[#4A5D50] text-center sm:text-left max-w-2xl border-t border-[#E2E6DA] pt-8 leading-relaxed">
-          {data.footerNote}
-        </p>
-
+        {hasMore && (
+          <div className="flex justify-center mt-4 mb-8">
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={handleLoadMore}
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 min-h-[46px] rounded-full bg-[#143323] hover:bg-[#1E4D35] text-[#FAFBF7] font-semibold text-[13.5px] tracking-wide transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 font-sans"
+            >
+              <span>{loadMoreText}</span>
+              <svg
+                className="w-4 h-4 stroke-current stroke-2 transition-transform duration-300 group-hover:translate-y-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </motion.button>
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
@@ -153,8 +139,8 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8"
           >
             <div className="absolute top-4 left-4 right-4 sm:top-6 sm:left-8 sm:right-8 z-30 flex items-center justify-between pointer-events-none">
-              <div className="px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[#FAFBF7] text-xs font-semibold tracking-wider pointer-events-auto shadow-sm">
-                {activeImageIndex + 1} / {filteredItems.length}
+              <div className="px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[#FAFBF7] text-[13.5px] font-semibold tracking-wider pointer-events-auto shadow-sm">
+                {activeImageIndex + 1} / {visibleItems.length}
               </div>
 
               <motion.button
@@ -207,6 +193,21 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
                 sizes="(max-width: 1200px) 90vw, 1200px"
                 className="object-contain"
               />
+
+              {(currentModalItem.title || currentModalItem.subtitle) && (
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent pt-12 pb-6 px-6 text-white text-center sm:text-left z-20 pointer-events-none">
+                  {currentModalItem.title && (
+                    <h3 className="font-editorial text-xl sm:text-2xl font-bold mb-1 drop-shadow-sm">
+                      {currentModalItem.title}
+                    </h3>
+                  )}
+                  {currentModalItem.subtitle && (
+                    <p className="text-[13.5px] text-white/90 drop-shadow-sm font-sans max-w-2xl">
+                      {currentModalItem.subtitle}
+                    </p>
+                  )}
+                </div>
+              )}
             </motion.div>
 
             <motion.button

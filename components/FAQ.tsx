@@ -30,7 +30,7 @@ export default function FAQ({ data = faqData, className = "" }: FAQProps) {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="lg:col-span-5"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
               <span>{data.eyebrow}</span>
             </div>
@@ -45,7 +45,7 @@ export default function FAQ({ data = faqData, className = "" }: FAQProps) {
 
             <Link
               href={data.topLink.href}
-              className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors border-b border-[#143323]/30 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
+              className="group inline-flex items-center gap-1.5 text-[13.5px] sm:text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors border-b border-[#143323]/30 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
             >
               <span>{data.topLink.text}</span>
               <svg

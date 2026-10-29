@@ -24,7 +24,7 @@ export default function VolunteerCTA({ data = volunteerCTAData, className = "" }
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D0EA87] animate-pulse" aria-hidden="true" />
               <span>{data.eyebrow}</span>
             </div>
@@ -34,7 +34,7 @@ export default function VolunteerCTA({ data = volunteerCTAData, className = "" }
               <br />
             </h2>
 
-            <p className="text-xs sm:text-sm tracking-wider uppercase text-[#FAFBF7]/90 font-semibold mb-9 font-sans">
+            <p className="text-[13.5px] sm:text-sm tracking-wider uppercase text-[#FAFBF7]/90 font-semibold mb-9 font-sans">
               {data.subtitle}
             </p>
 

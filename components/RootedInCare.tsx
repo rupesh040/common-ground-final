@@ -66,7 +66,7 @@ export default function RootedInCare({ data = rootedInCareData, className = "" }
               transition={{ duration: 0.5 }}
               className="mb-4"
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase shadow-xs font-sans">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase shadow-xs font-sans">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
                 <span>{data.eyebrow}</span>
               </div>
@@ -103,7 +103,7 @@ export default function RootedInCare({ data = rootedInCareData, className = "" }
                   transition={{ duration: 0.5, delay: 0.2 + idx * 0.12 }}
                   className="py-6 first:pt-0 last:pb-0 flex items-start gap-4 group"
                 >
-                  <div className="w-7 h-7 rounded-full bg-[#143323] text-[#D4EAA2] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold font-sans shadow-2xs" aria-hidden="true">
+                  <div className="w-7 h-7 rounded-full bg-[#143323] text-[#D4EAA2] flex items-center justify-center shrink-0 mt-0.5 text-[13.5px] font-bold font-sans shadow-2xs" aria-hidden="true">
                     {idx + 1}
                   </div>
                   <div>

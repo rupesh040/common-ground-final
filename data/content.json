@@ -128,7 +128,7 @@
               "name": "common ground",
               "dot": ".",
               "subtitle": "Planting hope, growing change",
-              "image": "/images/logo-creative.svg"
+              "image": "/images/logo.png"
             },
             "navLinks": [
               { "name": "Home", "href": "/", "active": true },
@@ -201,7 +201,7 @@
             "cards": [
               {
                 "id": "purpose",
-                "tag": "01 // PURPOSE",
+                "tag": "PURPOSE",
                 "icon": "✦",
                 "title": "Partnering for Real Change",
                 "description": "We believe in a world where everyone has the chance to thrive. We create lasting change by partnering with communities, providing resources, and driving sustainable development.",
@@ -209,7 +209,7 @@
               },
               {
                 "id": "action",
-                "tag": "02 // ACTION",
+                "tag": "ACTION",
                 "icon": "✦",
                 "title": "Sustainable Initiatives",
                 "description": "Our programmes empower communities through education, healthcare, and economic initiatives designed to lift families out of poverty and protect our shared environment.",
@@ -217,7 +217,7 @@
               },
               {
                 "id": "ethos",
-                "tag": "03 // ETHOS",
+                "tag": "ETHOS",
                 "icon": "★",
                 "title": "Rooted in Care",
                 "description": "Rooted in transparency, our community initiatives nurture long-term stability and sustainable local stewardship across rural regions.",
@@ -282,11 +282,7 @@
                 "href": "/causes/community",
                 "tagIcon": "users"
               }
-            ],
-            "bottomButton": {
-              "text": "View all our causes",
-              "href": "/causes"
-            }
+            ]
           }
         }
       },
@@ -431,7 +427,7 @@
               "name": "common ground",
               "dot": ".",
               "tagline": "Small acts. Lasting change.",
-              "image": "/images/logo-creative.svg"
+              "image": "/images/logo-dark.png"
             },
             "columns": [
               {
@@ -453,6 +449,12 @@
                 ]
               }
             ],
+            "contact": {
+              "title": "Contact Us",
+              "email": "info@xyz.com",
+              "phone": "+1 000-000-000",
+              "address": "124 Community Way, Suite 300, Austin, TX 78701"
+            },
             "social": [
               { "name": "Facebook", "href": "https://facebook.com", "icon": "facebook" },
               { "name": "Instagram", "href": "https://instagram.com", "icon": "instagram" },
@@ -460,11 +462,7 @@
               { "name": "LinkedIn", "href": "https://linkedin.com", "icon": "linkedin" }
             ],
             "copyright": "© 2026 All Rights Reserved. Powered by Lestow",
-            "missionNote": "Sample organization, illustrative programs and editorial content. Photography depicts community themes, not claimed projects. Donation and contact forms are demonstrations.",
-            "backToTopText": "Back to top ↑",
-            "bottomLinks": [
-              { "name": "Privacy", "href": "/contact#privacy" }
-            ]
+            "backToTopText": "Back to top ↑"
           }
         }
       },
@@ -537,64 +535,76 @@
             "subtitleNote": "Illustrative team roles for this NGO concept. Add your organization's real people and stories here.",
             "roles": [
               {
-                "id": "cc",
-                "initials": "CC",
+                "id": "maya-lin",
+                "name": "Maya Lin",
+                "position": "Director of Community Outreach",
+                "initials": "ML",
                 "roleTag": "MAKING CONNECTIONS",
-                "title": "Community coordination",
-                "description": "Listens to local ideas, brings people together, and helps turn a shared need into a thoughtful next step.",
+                "title": "Director of Community Outreach",
+                "description": "Listens directly to local ideas, convenes grassroots town halls, and coordinates neighborhood initiatives to ensure every resident has an active voice in community decisions.",
                 "noteBadge": "A LITTLE CARE GOES A LONG WAY",
                 "bgVariant": "sage",
-                "image": "/images/team_coordinator.jpg"
+                "image": "/images/team_person_1.jpg"
               },
               {
-                "id": "ec",
-                "initials": "EC",
+                "id": "marcus-vance",
+                "name": "Marcus Vance",
+                "position": "Lead Environmental Specialist",
+                "initials": "MV",
                 "roleTag": "GROWING A GREENER FUTURE",
-                "title": "Environmental care",
-                "description": "Helps shape gardening, planting, and everyday sustainability activities around local places and needs.",
+                "title": "Lead Environmental Specialist",
+                "description": "Spearheads urban tree planting, oversees neighborhood community gardens, and leads hands-on ecological restoration and sustainability workshops.",
                 "noteBadge": "A LITTLE CARE GOES A LONG WAY",
                 "bgVariant": "olive",
-                "image": "/images/team_environment.jpg"
+                "image": "/images/team_person_2.jpg"
               },
               {
-                "id": "ll",
-                "initials": "LL",
+                "id": "elena-rostova",
+                "name": "Elena Rostova",
+                "position": "Head of Youth Learning & Literacy",
+                "initials": "ER",
                 "roleTag": "OPENING POSSIBILITIES",
-                "title": "Learning & literacy",
-                "description": "Creates welcoming spaces for curiosity, shared books, creative learning, and practical skills.",
+                "title": "Head of Youth Learning & Literacy",
+                "description": "Designs after-school reading clubs, mentors youth volunteers, and secures book donations and creative educational resources for community centers.",
                 "noteBadge": "A LITTLE CARE GOES A LONG WAY",
                 "bgVariant": "cream",
-                "image": "/images/team_literacy.jpg"
+                "image": "/images/team_person_3.jpg"
               },
               {
-                "id": "vc",
-                "initials": "VC",
+                "id": "david-kalu",
+                "name": "David Kalu",
+                "position": "Volunteer Care & Engagement Manager",
+                "initials": "DK",
                 "roleTag": "HELPING PEOPLE TAKE PART",
-                "title": "Volunteer care",
-                "description": "Helps people find a useful way to contribute and makes room for different interests and abilities.",
+                "title": "Volunteer Care & Engagement Manager",
+                "description": "Welcomes, trains, and supports our network of volunteers, matching each person's skills and availability with meaningful community activities.",
                 "noteBadge": "A LITTLE CARE GOES A LONG WAY",
                 "bgVariant": "sage",
-                "image": "/images/team_volunteer.jpg"
+                "image": "/images/team_person_4.jpg"
               },
               {
-                "id": "pl",
-                "initials": "PL",
+                "id": "sarah-jenkins",
+                "name": "Sarah Jenkins",
+                "position": "Director of Partnerships & Alliances",
+                "initials": "SJ",
                 "roleTag": "WORKING TOGETHER",
-                "title": "Partnerships & listening",
-                "description": "Builds relationships with local groups and makes sure community feedback stays part of the conversation.",
+                "title": "Director of Partnerships & Alliances",
+                "description": "Builds collaborative relationships with local non-profits, ethical businesses, and civic groups to expand resources and amplify community impact.",
                 "noteBadge": "A LITTLE CARE GOES A LONG WAY",
                 "bgVariant": "olive",
-                "image": "/images/team_partnerships.jpg"
+                "image": "/images/team_person_5.jpg"
               },
               {
-                "id": "os",
-                "initials": "OS",
+                "id": "amir-patel",
+                "name": "Amir Patel",
+                "position": "Operations & Logistics Coordinator",
+                "initials": "AP",
                 "roleTag": "CARING FOR THE DETAILS",
-                "title": "Operations & support",
-                "description": "Supports planning, clear communication, and the everyday organization that makes shared work possible.",
+                "title": "Operations & Logistics Coordinator",
+                "description": "Manages day-to-day NGO logistics, transparent budgeting, and supply distribution for weekend volunteer drives and emergency relief programs.",
                 "noteBadge": "A LITTLE CARE GOES A LONG WAY",
                 "bgVariant": "cream",
-                "image": "/images/team_operations.jpg"
+                "image": "/images/team_person_6.jpg"
               }
             ],
             "calloutCard": {
@@ -615,6 +625,10 @@
       "GallerySection": {
         "variants": {
           "CommonGroundGallery1": {
+            "loadMoreButtonText": "Load More",
+            "viewPhotoText": "View Photo",
+            "initialCount": 4,
+            "batchSize": 4,
             "categories": [
               { "label": "All", "value": "all", "count": 4 },
               { "label": "Nature", "value": "nature", "count": 2 },
@@ -653,6 +667,38 @@
                 "title": "Belonging begins with a welcome.",
                 "subtitle": "Making time to connect with the people around us.",
                 "image": "/images/cause_community.jpg"
+              },
+              {
+                "id": "gal-5",
+                "category": "nature",
+                "categoryLabel": "Nature",
+                "title": "Greening our shared neighborhoods.",
+                "subtitle": "Volunteers tending the community raised beds and urban plantings.",
+                "image": "/images/garden.jpg"
+              },
+              {
+                "id": "gal-6",
+                "category": "community",
+                "categoryLabel": "Community",
+                "title": "Connecting across generations.",
+                "subtitle": "Neighbors coming together for shared weekend community gatherings.",
+                "image": "/images/community.jpg"
+              },
+              {
+                "id": "gal-7",
+                "category": "learning",
+                "categoryLabel": "Learning",
+                "title": "Youth workshops and creative discovery.",
+                "subtitle": "Hands-on projects sparking curious minds and teamwork.",
+                "image": "/images/learning.jpg"
+              },
+              {
+                "id": "gal-8",
+                "category": "community",
+                "categoryLabel": "Community",
+                "title": "Grassroots hands making lasting impact.",
+                "subtitle": "Dedicated volunteer teams leading care and restoration drives.",
+                "image": "/images/team_volunteer.jpg"
               }
             ],
             "footerNote": "These photographs illustrate community themes. They are not presented as records of Common Ground projects."
@@ -666,20 +712,29 @@
             "leftHeadingPart1": "Good things begin",
             "leftHeadingItalic": "with a conversation.",
             "leftDescription": "Whether you're ready to get involved or simply curious about our causes, there's room for your voice here.",
-            "features": [
+            "contactDetails": [
               {
-                "title": "Give a little time.",
-                "description": "Explore volunteering, sharing a skill, or helping with a community activity."
+                "icon": "email",
+                "label": "Email Us",
+                "value": "info@xyz.com",
+                "href": "mailto:info@xyz.com",
+                "note": "Send us your inquiry anytime"
               },
               {
-                "title": "Grow an idea together.",
-                "description": "Tell us about a partnership or something you'd love to see in your neighborhood."
+                "icon": "phone",
+                "label": "Call Us",
+                "value": "+1 000-000-000",
+                "href": "tel:+1000000000",
+                "note": "Mon – Fri, 9:00 AM – 5:00 PM EST"
+              },
+              {
+                "icon": "address",
+                "label": "Our Location",
+                "value": "124 Community Way, Suite 300, Austin, TX 78701, USA",
+                "href": "https://maps.google.com/?q=124+Community+Way+Suite+300+Austin+TX+78701",
+                "note": "Open for scheduled community visits"
               }
             ],
-            "faqLink": {
-              "text": "Explore common questions",
-              "href": "/faq"
-            },
             "image": "/images/cause_community.jpg",
             "imageCaption": "Every connection is a place to start.",
             "formEyebrow": "YOUR NEXT STEP",
@@ -710,7 +765,6 @@
             "groups": [
               {
                 "id": "getting-involved",
-                "numberPrefix": "01",
                 "categoryTag": "HELPFUL TO KNOW",
                 "categoryTitle": "Getting involved",
                 "items": [
@@ -738,7 +792,6 @@
               },
               {
                 "id": "causes-support",
-                "numberPrefix": "02",
                 "categoryTag": "HELPFUL TO KNOW",
                 "categoryTitle": "Our causes & support",
                 "items": [
@@ -766,7 +819,6 @@
               },
               {
                 "id": "about-website",
-                "numberPrefix": "03",
                 "categoryTag": "HELPFUL TO KNOW",
                 "categoryTitle": "About this website",
                 "items": [

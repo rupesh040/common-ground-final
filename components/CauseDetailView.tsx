@@ -1,10 +1,75 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, animate, useInView } from "framer-motion";
 import type { CauseDetailData } from "@/types/content";
+
+function parseStatValue(raw: string) {
+  const match = raw.match(/^([^\d]*)([\d,.]+)(.*)$/);
+  if (!match) {
+    return { prefix: "", target: 0, suffix: raw, hasCommas: false, decimals: 0 };
+  }
+  const prefix = match[1] || "";
+  const numStr = match[2];
+  const suffix = match[3] || "";
+  const hasCommas = numStr.includes(",");
+  const cleanNumStr = numStr.replace(/,/g, "");
+  const target = parseFloat(cleanNumStr) || 0;
+  const decimals = cleanNumStr.includes(".") ? cleanNumStr.split(".")[1].length : 0;
+  return { prefix, target, suffix, hasCommas, decimals };
+}
+
+function formatStat(num: number, parsed: ReturnType<typeof parseStatValue>) {
+  let formatted = parsed.decimals > 0 ? num.toFixed(parsed.decimals) : Math.round(num).toString();
+  if (parsed.hasCommas) {
+    const parts = formatted.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    formatted = parts.join(".");
+  }
+  return `${parsed.prefix}${formatted}${parsed.suffix}`;
+}
+
+interface AnimatedCountProps {
+  value: string;
+  inView?: boolean;
+  delay?: number;
+}
+
+function AnimatedCount({ value, inView: externalInView, delay = 0 }: AnimatedCountProps) {
+  const localRef = useRef<HTMLSpanElement>(null);
+  const localInView = useInView(localRef, { once: true, amount: "some" });
+  const inView = externalInView !== undefined ? externalInView : localInView;
+  const parsed = parseStatValue(value);
+  const [displayValue, setDisplayValue] = useState(() => formatStat(0, parsed));
+
+  useEffect(() => {
+    if (!inView || parsed.target === 0) return;
+
+    let controls: { stop: () => void } | null = null;
+    const timeout = setTimeout(() => {
+      controls = animate(0, parsed.target, {
+        duration: 1.8,
+        ease: [0.16, 1, 0.3, 1],
+        onUpdate: (latest) => {
+          setDisplayValue(formatStat(latest, parsed));
+        },
+      });
+    }, delay * 1000);
+
+    return () => {
+      clearTimeout(timeout);
+      if (controls) controls.stop();
+    };
+  }, [inView, parsed.target, delay]);
+
+  return (
+    <span ref={localRef} className="tabular-nums">
+      {displayValue}
+    </span>
+  );
+}
 
 interface CauseDetailViewProps {
   data: CauseDetailData;
@@ -23,7 +88,7 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
           aria-label="Breadcrumb"
           className="mb-8 font-sans"
         >
-          <ol className="flex items-center flex-wrap gap-2 text-xs font-medium text-[#4A5D50]">
+          <ol className="flex items-center flex-wrap gap-2 text-[13.5px] font-medium text-[#4A5D50]">
             <li>
               <Link href="/" className="hover:text-[#143323] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded px-1 -mx-1">
                 Home
@@ -48,7 +113,7 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[11px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
             <span>{data.category}</span>
           </div>
           <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#143323] leading-[1.12] mb-4">
@@ -77,17 +142,16 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 p-8 rounded-3xl bg-white border border-[#E2E6DA] shadow-xs"
         >
           {data.stats.map((stat, idx) => (
             <div key={idx} className="text-center sm:text-left">
               <span className="font-editorial text-3xl sm:text-4xl font-bold text-[#143323] block mb-1">
-                {stat.value}
+                <AnimatedCount value={stat.value} delay={idx * 0.15} />
               </span>
-              <span className="text-xs sm:text-sm text-[#4A5D50] font-medium">
+              <span className="text-[13.5px] sm:text-sm text-[#4A5D50] font-medium">
                 {stat.label}
               </span>
             </div>
@@ -111,12 +175,12 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
             {data.initiatives.map((init, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.1 }}
-                whileHover={{ y: -4 }}
-                className="p-6 rounded-2xl bg-white border border-[#E2E6DA] shadow-xs transition-shadow hover:shadow-md"
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                className="p-6 rounded-2xl bg-white border border-[#E2E6DA] shadow-xs transition-shadow hover:shadow-md transform-gpu"
               >
                 <h3 className="font-editorial text-xl font-bold text-[#143323] mb-2">
                   {init.title}
@@ -130,21 +194,27 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="p-8 sm:p-10 rounded-3xl bg-[#D4EAA2] border border-[#C2DB91] text-center mb-16"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="p-8 sm:p-10 rounded-3xl bg-[#D4EAA2] border border-[#C2DB91] text-center mb-16 shadow-xs"
         >
           <blockquote className="font-editorial italic text-2xl sm:text-3xl text-[#143323] mb-3">
             &ldquo;{data.impactQuote}&rdquo;
           </blockquote>
-          <cite className="text-xs font-bold text-[#143323]/70 uppercase tracking-widest not-italic font-sans">
+          <cite className="text-[13.5px] font-bold text-[#143323]/70 uppercase tracking-widest not-italic font-sans">
             — {data.quoteAuthor}
           </cite>
         </motion.div>
 
-        <div className="p-8 rounded-3xl bg-white border border-[#E2E6DA] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="p-8 rounded-3xl bg-white border border-[#E2E6DA] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+        >
           <div>
             <h3 className="font-editorial text-2xl font-bold text-[#143323] mb-3">
               How You Can Take Part
@@ -170,7 +240,7 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
               </svg>
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
 
       </div>
     </article>
