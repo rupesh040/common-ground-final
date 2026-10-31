@@ -19,7 +19,7 @@ export default function Causes({ data = causesData, className = "", hideTopLink 
   const shouldHideTopLink = hideTopLink || pathname === "/causes";
 
   return (
-    <section id="causes" className={`py-6 bg-[#F7F7F0] ${className}`}>
+    <section id="causes" className={`py-10 bg-[#F7F7F0] ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div

@@ -78,7 +78,7 @@ interface CauseDetailViewProps {
 
 export default function CauseDetailView({ data, className = "" }: CauseDetailViewProps) {
   return (
-    <article className={`py-6 bg-[#F4F3EE] overflow-hidden ${className}`}>
+    <article className={`py-10 bg-[#F4F3EE] overflow-hidden ${className}`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.nav

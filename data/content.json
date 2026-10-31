@@ -474,7 +474,8 @@
             "headingPart1": "Rooted in care.",
             "headingItalic": "Growing together.",
             "subtitle": "Learn how Common Ground fosters grassroots empowerment, ecological restoration, and community resilience.",
-            "circularBadgeText": "Good things grow together."
+            "circularBadgeText": "Good things grow together.",
+            "image": "/images/banner.png"
           },
           "CausesPageBanner": {
             "breadcrumb": "Home / Our Causes",
@@ -765,7 +766,6 @@
             "groups": [
               {
                 "id": "getting-involved",
-                "categoryTag": "HELPFUL TO KNOW",
                 "categoryTitle": "Getting involved",
                 "items": [
                   {
@@ -792,7 +792,6 @@
               },
               {
                 "id": "causes-support",
-                "categoryTag": "HELPFUL TO KNOW",
                 "categoryTitle": "Our causes & support",
                 "items": [
                   {
@@ -819,7 +818,6 @@
               },
               {
                 "id": "about-website",
-                "categoryTag": "HELPFUL TO KNOW",
                 "categoryTitle": "About this website",
                 "items": [
                   {

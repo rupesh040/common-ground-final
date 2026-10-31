@@ -70,7 +70,7 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
     activeImageIndex !== null ? visibleItems[activeImageIndex] : null;
 
   return (
-    <section className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
+    <section className={`py-10 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-8">
           {visibleItems.map((item, index) => (

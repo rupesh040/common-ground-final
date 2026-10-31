@@ -13,7 +13,7 @@ interface VolunteerCTAProps {
 
 export default function VolunteerCTA({ data = volunteerCTAData, className = "" }: VolunteerCTAProps) {
   return (
-    <section aria-label="Volunteer" className={`bg-[#143323] text-[#FAFBF7] py-6 overflow-hidden relative ${className}`}>
+    <section aria-label="Volunteer" className={`bg-[#143323] text-[#FAFBF7] py-10 overflow-hidden relative ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           

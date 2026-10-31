@@ -13,7 +13,7 @@ interface BlogDetailViewProps {
 
 export default function BlogDetailView({ data, className = "" }: BlogDetailViewProps) {
   return (
-    <article className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
+    <article className={`py-10 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.nav

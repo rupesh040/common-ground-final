@@ -79,7 +79,7 @@ export default function Hero({ data = heroData, className = "" }: HeroProps) {
 
   return (
     <section
-      className={`relative overflow-hidden py-6 bg-[#F7F7F0] ${className}`}
+      className={`relative overflow-hidden py-10 bg-[#F7F7F0] ${className}`}
       style={{ backgroundColor: heroBgColor }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,16 +202,14 @@ export default function Hero({ data = heroData, className = "" }: HeroProps) {
                 className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#D4EAA2] p-3 sm:p-4 flex flex-col items-center justify-center text-center shadow-xl border-2 border-dashed border-[#143323]/25"
               >
                 <div className="text-[#143323] mb-1 sm:mb-1.5" aria-hidden="true">
-                  <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6 stroke-[#143323] fill-none stroke-[2.2]"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 21V11M12 11C12 7 9 4 5 4c0 4 3 7 7 7zm0 0c0-4 3-7 7-7 0 4-3 7-7 7z"
-                    />
-                  </svg>
+                  <Image
+                    src="/images/sub-logo.png"
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="w-12 h-12 object-contain shrink-0"
+                    aria-hidden="true"
+                  />
                 </div>
                 <span className="text-[13.5px] font-bold text-[#143323] leading-tight font-sans">
                   {badgeFirstPart}

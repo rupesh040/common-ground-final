@@ -15,7 +15,7 @@ export default function PreFooterCTA({ data = preFooterCTAData, className = "" }
   return (
     <section
       aria-label="Call to action"
-      className={`relative bg-gradient-to-br from-[#163827] via-[#10271C] to-[#143323] text-[#FAFBF7] py-6 border-t border-[#1F4532] overflow-hidden ${className}`}
+      className={`relative bg-gradient-to-br from-[#163827] via-[#10271C] to-[#143323] text-[#FAFBF7] py-10 border-t border-[#1F4532] overflow-hidden ${className}`}
     >
       <div
         className="absolute top-0 right-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-[#D0EA87]/10 blur-3xl pointer-events-none"
@@ -80,18 +80,6 @@ export default function PreFooterCTA({ data = preFooterCTAData, className = "" }
                 <span>{data.primaryButton.text}</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-              <Link
-                href={data.secondaryLink.href}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[44px] rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/35 text-[13.5px] sm:text-sm font-semibold text-[#FAFBF7] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#143323]"
-              >
-                <span>{data.secondaryLink.text}</span>
-                <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M7 17L17 7M17 7H9M17 7v8" />
                 </svg>
               </Link>
             </motion.div>

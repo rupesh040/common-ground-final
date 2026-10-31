@@ -202,6 +202,7 @@ export interface PageBannerData {
   headingItalic: string;
   subtitle: string;
   circularBadgeText?: string;
+  image?: string;
 }
 
 export interface PreFooterCTAData {
@@ -307,8 +308,8 @@ export interface ContactSectionData {
 
 export interface FAQCategoryGroup {
   id: string;
-  numberPrefix: string;
-  categoryTag: string;
+  numberPrefix?: string;
+  categoryTag?: string;
   categoryTitle: string;
   items: FAQItem[];
 }

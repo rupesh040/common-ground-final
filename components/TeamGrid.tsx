@@ -14,7 +14,7 @@ interface TeamGridProps {
 
 export default function TeamGrid({ data = teamSectionData, className = "" }: TeamGridProps) {
   return (
-    <section className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
+    <section className={`py-10 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div

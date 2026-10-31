@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import type { CommonGroundTicker1Data } from "@/types/content";
 import { tickerData } from "@/lib/content";
 
@@ -27,9 +28,14 @@ export default function Ticker({ data = tickerData }: TickerProps) {
               <span className="text-[13.5px] font-extrabold tracking-[0.2em] text-[#143323] uppercase font-sans">
                 {item}
               </span>
-              <span className="text-[#143323]/50 text-base leading-none font-bold" aria-hidden="true">
-                ✦
-              </span>
+              <Image
+                src="/images/sub-logo.webp"
+                alt=""
+                width={16}
+                height={16}
+                className="w-6 h-6 object-contain shrink-0"
+                aria-hidden="true"
+              />
             </div>
           );
         })}

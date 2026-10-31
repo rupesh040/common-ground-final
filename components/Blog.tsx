@@ -18,7 +18,7 @@ export default function Blog({ data = blogData, className = "", hideTopLink = fa
   const pathname = usePathname();
   const shouldHideTopLink = hideTopLink || pathname === "/blog";
   return (
-    <section id="blogs" className={`py-6 bg-[#F7F7F0] overflow-hidden ${className}`}>
+    <section id="blogs" className={`py-10 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div

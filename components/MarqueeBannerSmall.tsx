@@ -14,7 +14,7 @@ export default function MarqueeBannerSmall({
   data = marqueeBannerSmallData,
 }: MarqueeBannerSmallProps) {
   return (
-    <section className="bg-[#D4EAA2] py-6 border-y border-[#C5E18E] overflow-hidden">
+    <section className="bg-[#D4EAA2] py-10 border-y border-[#C5E18E] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           

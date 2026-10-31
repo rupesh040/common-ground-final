@@ -16,7 +16,7 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
   return (
     <section
       id="about"
-      className={`py-6 bg-[#FAF9F5] border-y border-[#E8EDE2] ${className}`}
+      className={`py-10 bg-[#FAF9F5] border-y border-[#E8EDE2] ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
