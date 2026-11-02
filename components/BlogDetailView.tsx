@@ -13,7 +13,7 @@ interface BlogDetailViewProps {
 
 export default function BlogDetailView({ data, className = "" }: BlogDetailViewProps) {
   return (
-    <article className={`py-10 bg-[#F7F7F0] overflow-hidden ${className}`}>
+    <article className={`py-12 sm:py-16 lg:py-20 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.nav
@@ -23,7 +23,7 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
           aria-label="Breadcrumb"
           className="mb-8 font-sans"
         >
-          <ol className="flex items-center flex-wrap gap-2 text-[13.5px] font-medium text-[#4A5D50]">
+          <ol className="flex items-center flex-wrap gap-2 text-xs sm:text-sm font-medium text-[#4A5D50]">
             <li>
               <Link href="/" className="hover:text-[#143323] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded px-1 -mx-1">
                 Home
@@ -48,7 +48,7 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-xs font-sans">
             <span>{data.category}</span>
           </div>
 
@@ -79,7 +79,7 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
             <span className="text-sm font-bold text-[#143323] block">
               {data.author.name}
             </span>
-            <span className="text-[13.5px] text-[#4A5D50]">
+            <span className="text-sm text-[#4A5D50]">
               {data.author.role}
             </span>
           </div>
@@ -146,7 +146,7 @@ export default function BlogDetailView({ data, className = "" }: BlogDetailViewP
 
           <Link
             href={data.contactLink?.href || "/contact"}
-            className="text-[13.5px] font-bold text-[#143323] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs px-1 -mx-1"
+            className="text-sm font-bold text-[#143323] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs px-1 -mx-1"
           >
             {data.contactLink?.text || "Share an idea with us →"}
           </Link>

@@ -99,7 +99,7 @@ Thank you for connecting with Common Ground!`;
   };
 
   return (
-    <section className={`py-10 bg-[#F4F3EE] overflow-hidden ${className}`}>
+    <section className={`py-14 sm:py-18 lg:py-20 bg-[#F4F3EE] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
@@ -111,12 +111,12 @@ Thank you for connecting with Common Ground!`;
             className="lg:col-span-6 flex flex-col justify-between"
           >
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-xs font-sans">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
                 <span>{data.leftEyebrow}</span>
               </div>
 
-              <h2 className="font-editorial text-4xl sm:text-5xl font-bold tracking-tight text-[#143323] leading-tight mb-5">
+              <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#143323] leading-[1.15] mb-5">
                 {data.leftHeadingPart1}
                 <br />
                 <span className="italic font-serif font-normal text-[#143323]">
@@ -124,7 +124,7 @@ Thank you for connecting with Common Ground!`;
                 </span>
               </h2>
 
-              <p className="text-base text-[#4A5D50] leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-[#4A5D50] leading-relaxed mb-8">
                 {data.leftDescription}
               </p>
 
@@ -143,7 +143,7 @@ Thank you for connecting with Common Ground!`;
                       <ContactIcon icon={item.icon} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <span className="text-[13.5px] font-bold uppercase tracking-[0.14em] text-[#4A5D50] block font-sans mb-0.5">
+                      <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#4A5D50] block font-sans mb-0.5">
                         {item.label}
                       </span>
                       {item.href ? (
@@ -161,7 +161,7 @@ Thank you for connecting with Common Ground!`;
                         </p>
                       )}
                       {item.note && (
-                        <p className="text-[13.5px] text-[#7A8E80] mt-0.5">
+                        <p className="text-xs sm:text-sm text-[#7A8E80] mt-0.5">
                           {item.note}
                         </p>
                       )}
@@ -184,25 +184,25 @@ Thank you for connecting with Common Ground!`;
           >
             <div className="bg-[#EAE8DF] rounded-[32px] p-8 sm:p-10 border border-[#DCDAD0] shadow-xs">
               
-              <span className="text-[13.5px] font-bold uppercase tracking-[0.18em] text-[#4A5D50] block mb-2 font-sans">
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#4A5D50] block mb-2 font-sans">
                 {data.formEyebrow}
               </span>
 
-              <h3 className="font-editorial text-3xl sm:text-4xl font-bold tracking-tight text-[#143323] mb-5">
+              <h3 className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight text-[#143323] mb-4 sm:mb-5">
                 {data.formHeadingPart1}{" "}
                 <span className="italic font-serif font-normal">
                   {data.formHeadingItalic}
                 </span>
               </h3>
 
-              <div className="rounded-xl bg-[#E5EBDD] p-4 text-[13.5px] text-[#2F4434] leading-relaxed mb-6 border border-[#D5E3C7]">
+              <div className="rounded-xl bg-[#E5EBDD] p-4 text-xs sm:text-sm text-[#2F4434] leading-relaxed mb-6 border border-[#D5E3C7]">
                 {data.formNotice}
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[13.5px] font-semibold text-[#143323] mb-1.5">
+                    <label className="block text-sm font-semibold text-[#143323] mb-1.5">
                       Your name *
                     </label>
                     <input
@@ -216,7 +216,7 @@ Thank you for connecting with Common Ground!`;
                   </div>
 
                   <div>
-                    <label className="block text-[13.5px] font-semibold text-[#143323] mb-1.5">
+                    <label className="block text-sm font-semibold text-[#143323] mb-1.5">
                       Email address *
                     </label>
                     <input
@@ -231,7 +231,7 @@ Thank you for connecting with Common Ground!`;
                 </div>
 
                 <div>
-                  <label className="block text-[13.5px] font-semibold text-[#143323] mb-1.5">
+                  <label className="block text-sm font-semibold text-[#143323] mb-1.5">
                     What&apos;s on your mind? *
                   </label>
                   <select
@@ -248,7 +248,7 @@ Thank you for connecting with Common Ground!`;
                 </div>
 
                 <div>
-                  <label className="block text-[13.5px] font-semibold text-[#143323] mb-1.5">
+                  <label className="block text-sm font-semibold text-[#143323] mb-1.5">
                     Your message *
                   </label>
                   <textarea
@@ -261,14 +261,14 @@ Thank you for connecting with Common Ground!`;
                   />
                 </div>
 
-                <p className="text-[13.5px] text-[#4A5D50] font-medium">* Required fields</p>
+                <p className="text-xs font-medium text-[#4A5D50]">* Required fields</p>
 
                 {status && (
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     role="status"
-                    className="p-3.5 rounded-xl bg-[#EAF2D7] text-[13.5px] font-semibold text-[#143323] border border-[#CCE0B2] shadow-2xs"
+                    className="p-3.5 rounded-xl bg-[#EAF2D7] text-sm font-semibold text-[#143323] border border-[#CCE0B2] shadow-2xs"
                   >
                     {status}
                   </motion.div>

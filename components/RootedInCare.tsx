@@ -12,7 +12,7 @@ interface RootedInCareProps {
 
 export default function RootedInCare({ data = rootedInCareData, className = "" }: RootedInCareProps) {
   return (
-    <section className={`py-10 bg-[#F4F3EE] overflow-hidden ${className}`}>
+    <section className={`py-14 sm:py-18 lg:py-20 bg-[#F4F3EE] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <motion.div
@@ -22,9 +22,9 @@ export default function RootedInCare({ data = rootedInCareData, className = "" }
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5"
           >
-            <div className="relative w-full aspect-square rounded-[36px] bg-[#D4EAA2] p-10 sm:p-14 flex flex-col justify-between overflow-hidden shadow-xs border border-[#C2DB91] hover:shadow-md transition-shadow">
+            <div className="relative w-full aspect-square rounded-[32px] sm:rounded-[36px] bg-[#D4EAA2] p-8 sm:p-12 lg:p-14 flex flex-col justify-between overflow-hidden shadow-xs border border-[#C2DB91] hover:shadow-md transition-shadow">
               <div>
-                <h2 className="font-editorial text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#143323] leading-[1.05]">
+                <h2 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#143323] leading-[1.08]">
                   {data.leftCard.word1}
                   <br />
                   <span className="italic font-serif font-normal text-[#143323]">
@@ -32,7 +32,7 @@ export default function RootedInCare({ data = rootedInCareData, className = "" }
                   </span>
                 </h2>
               </div>
-              <p className="text-sm sm:text-base font-medium text-[#143323]/85 max-w-[240px] relative z-10 font-sans leading-relaxed">
+              <p className="text-sm sm:text-base font-medium text-[#143323]/85 max-w-[260px] relative z-10 font-sans leading-relaxed">
                 {data.leftCard.tagline}
               </p>
               <motion.div
@@ -66,7 +66,7 @@ export default function RootedInCare({ data = rootedInCareData, className = "" }
               transition={{ duration: 0.5 }}
               className="mb-4"
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase shadow-xs font-sans">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-bold tracking-[0.14em] uppercase shadow-xs font-sans">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
                 <span>{data.eyebrow}</span>
               </div>
@@ -76,7 +76,7 @@ export default function RootedInCare({ data = rootedInCareData, className = "" }
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-editorial text-4xl sm:text-5xl font-bold tracking-tight text-[#143323] leading-[1.15] mb-6"
+              className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#143323] leading-[1.15] mb-5 sm:mb-6"
             >
               {data.headingPart1}
               <br />
@@ -89,7 +89,7 @@ export default function RootedInCare({ data = rootedInCareData, className = "" }
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-base sm:text-lg text-[#4A5D50] leading-relaxed mb-10 max-w-xl"
+              className="text-base sm:text-lg text-[#4A5D50] leading-relaxed mb-8 sm:mb-10 max-w-xl"
             >
               {data.description}
             </motion.p>
@@ -101,13 +101,13 @@ export default function RootedInCare({ data = rootedInCareData, className = "" }
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 + idx * 0.12 }}
-                  className="py-6 first:pt-0 last:pb-0 flex items-start gap-4 group"
+                  className="py-5 sm:py-6 first:pt-0 last:pb-0 flex items-start gap-4 group"
                 >
-                  <div className="w-7 h-7 rounded-full bg-[#143323] text-[#D4EAA2] flex items-center justify-center shrink-0 mt-0.5 text-[13.5px] font-bold font-sans shadow-2xs" aria-hidden="true">
+                  <div className="w-7 h-7 rounded-full bg-[#143323] text-[#D4EAA2] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold font-sans shadow-2xs" aria-hidden="true">
                     {idx + 1}
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-[#143323] mb-1">
+                    <h4 className="text-base sm:text-lg font-bold text-[#143323] mb-1">
                       {step.title}
                     </h4>
                     <p className="text-sm sm:text-base text-[#4A5D50] leading-relaxed">

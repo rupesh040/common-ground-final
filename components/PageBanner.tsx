@@ -46,12 +46,12 @@ function HeroCircleBadge({
             aria-hidden="true"
           />
         </div>
-        <span className="text-[12px] sm:text-[13.5px] font-bold text-[#143323] leading-tight font-sans">
+        <span className="text-xs sm:text-sm font-bold text-[#143323] leading-tight font-sans">
           {firstPart}
           {secondPart && (
             <>
               <br />
-              <span className="italic font-serif font-normal text-[12px] sm:text-[13.5px]">
+              <span className="italic font-serif font-normal text-xs sm:text-sm">
                 {secondPart}
               </span>
             </>
@@ -151,7 +151,7 @@ export default function PageBanner({ data, className = "", image }: PageBannerPr
         <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#EDF4E5]/70 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12 lg:py-14">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
         {/* Breadcrumb Navigation (Always on top) */}
         <motion.nav
           initial={{ opacity: 0, y: -6 }}
@@ -160,7 +160,7 @@ export default function PageBanner({ data, className = "", image }: PageBannerPr
           aria-label="Breadcrumb"
           className="mb-5 sm:mb-6"
         >
-          <ol className="flex items-center flex-wrap gap-2 text-[13px] sm:text-[13.5px] font-medium text-[#4A5D50]">
+          <ol className="flex items-center flex-wrap gap-2 text-xs sm:text-sm font-medium text-[#4A5D50]">
             <li>
               <Link
                 href="/"
@@ -199,14 +199,10 @@ export default function PageBanner({ data, className = "", image }: PageBannerPr
             transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-7 xl:col-span-7 max-w-2xl"
           >
-            {/* Pill Tag / Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E4EED5] border border-[#CCE0B2]/80 text-[#143323] text-[11.5px] sm:text-xs font-bold tracking-[0.16em] uppercase mb-4 shadow-2xs font-sans">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
-              <span>{data.eyebrow}</span>
-            </div>
+           
 
             {/* Main Heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-bold tracking-tight text-[#143323] leading-[1.08] mb-4 sm:mb-5">
+            <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#143323] leading-[1.1] mb-3 sm:mb-4">
               <span className="block font-bold">{data.headingPart1}</span>
               <span className="block italic font-serif font-normal text-[#143323]">
                 {data.headingItalic}
@@ -214,7 +210,7 @@ export default function PageBanner({ data, className = "", image }: PageBannerPr
             </h1>
 
             {/* Subtitle / Description */}
-            <p className="text-[14.5px] sm:text-base text-[#4A5D50] leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg text-[#4A5D50] leading-relaxed max-w-xl">
               {data.subtitle}
             </p>
 

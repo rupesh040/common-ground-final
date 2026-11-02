@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { CommonGroundAbout1Data, AboutCardItem } from "@/types/content";
 import { aboutData } from "@/lib/content";
@@ -16,7 +17,7 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
   return (
     <section
       id="about"
-      className={`py-10 bg-[#FAF9F5] border-y border-[#E8EDE2] ${className}`}
+      className={`py-14 sm:py-18 lg:py-20 bg-[#FAF9F5] border-y border-[#E8EDE2] ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -24,16 +25,16 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl pb-10 sm:pb-12 border-b border-[#E2E6DA]"
+          className="max-w-4xl pb-8 sm:pb-10 border-b border-[#E2E6DA]"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.14em] uppercase mb-5 shadow-2xs font-sans">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-2xs font-sans">
             <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
             <span>{data.eyebrow}</span>
           </div>
 
-          <h2 className="font-sans text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-[#1E5638] leading-[1.15]">
+          <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#143323] leading-[1.15]">
             {data.headingPart1} {data.headingPart2}{" "}
-            <span className="relative inline-block italic font-serif font-normal text-[#2A6B45]">
+            <span className="relative inline-block italic font-serif font-normal text-[#143323]">
               <span>{data.headingItalic}</span>
               <svg
                 className="absolute -bottom-2 sm:-bottom-2.5 left-0 w-[105%] h-3 sm:h-3.5 text-[#D4EAA2] pointer-events-none select-none"
@@ -53,7 +54,7 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pt-10 sm:pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-8 sm:pt-10">
           {cards.map((card, idx) => {
             const isLast = idx === cards.length - 1 && cards.length % 2 !== 0;
             return (
@@ -64,25 +65,35 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.55, delay: idx * 0.1, ease: "easeOut" }}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className={`group relative overflow-hidden p-7 sm:p-8 rounded-2xl bg-white hover:bg-[#F2F7E8] border border-[#E2E6DA] hover:border-[#B5CE9E] shadow-xs hover:shadow-xl hover:shadow-[#143323]/[0.08] transition-colors duration-300 flex flex-col justify-between cursor-default transform-gpu ${
+                className={`group relative overflow-hidden p-6 sm:p-8 rounded-2xl bg-white hover:bg-[#F2F7E8] border border-[#E2E6DA] hover:border-[#B5CE9E] shadow-xs hover:shadow-xl hover:shadow-[#143323]/[0.08] transition-colors duration-300 flex flex-col justify-between cursor-default transform-gpu ${
                   isLast ? "md:col-span-2 lg:col-span-1" : ""
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <span className="text-[13.5px] font-mono font-bold tracking-widest text-[#143323]/60 uppercase group-hover:text-[#143323] transition-colors">
+                    <span className="text-xs font-mono font-bold tracking-widest text-[#143323]/60 uppercase group-hover:text-[#143323] transition-colors">
                       {card.tag}
                     </span>
                     {card.icon && (
-                      <span className="w-8 h-8 rounded-full bg-[#E5EED6] text-[#143323] flex items-center justify-center text-[13.5px] font-bold font-sans transition-all duration-300 group-hover:bg-[#143323] group-hover:text-[#D4EAA2] group-hover:scale-110 group-hover:rotate-12 shadow-2xs">
-                        {card.icon}
+                      <span
+                        className="w-8 h-8 rounded-full bg-[#F4F6EE] border border-[#E2E6DA] flex items-center justify-center transition-all duration-300 group-hover:bg-[#143323] group-hover:border-[#143323] group-hover:scale-110 group-hover:rotate-12 shadow-2xs"
+                        aria-hidden="true"
+                      >
+                        <Image
+                          src="/images/sub-logo-bw.png"
+                          alt=""
+                          width={20}
+                          height={20}
+                          className="w-4 h-4 object-contain grayscale contrast-125 transition-all duration-300 group-hover:invert"
+                          aria-hidden="true"
+                        />
                       </span>
                     )}
                   </div>
-                  <h3 className="font-editorial text-2xl font-bold text-[#1E5638] group-hover:text-[#143323] transition-colors mb-3">
+                  <h3 className="font-editorial text-2xl font-bold text-[#143323] group-hover:text-[#143323] transition-colors mb-2.5">
                     {card.title}
                   </h3>
-                  <p className="text-[#4A5D50] group-hover:text-[#2D4536] text-[15px] leading-relaxed font-sans transition-colors">
+                  <p className="text-[#4A5D50] group-hover:text-[#2D4536] text-sm sm:text-base leading-relaxed font-sans transition-colors">
                     {card.description}
                   </p>
                 </div>
@@ -93,14 +104,14 @@ export default function About({ data = aboutData, className = "" }: AboutProps) 
                       {card.badges.map((badge, bIdx) => (
                         <span
                           key={bIdx}
-                          className="px-2.5 py-1 rounded-full bg-[#F4F6EE] group-hover:bg-white text-[13.5px] font-bold text-[#143323] tracking-wider uppercase border border-[#E2E6DA] group-hover:border-[#B5CE9E] shadow-2xs font-sans transition-all duration-200 group-hover:scale-105"
+                          className="px-2.5 py-1 rounded-full bg-[#F4F6EE] group-hover:bg-white text-xs font-bold text-[#143323] tracking-wider uppercase border border-[#E2E6DA] group-hover:border-[#B5CE9E] shadow-2xs font-sans transition-all duration-200 group-hover:scale-105"
                         >
                           {badge}
                         </span>
                       ))}
                     </div>
                   ) : card.bottomTag ? (
-                    <span className="text-[13.5px] font-semibold text-[#143323] flex items-center gap-2 font-sans">
+                    <span className="text-xs sm:text-sm font-semibold text-[#143323] flex items-center gap-2 font-sans">
                       <span className="w-2 h-2 rounded-full bg-[#143323] group-hover:bg-[#143323] transition-transform duration-300 group-hover:scale-125" />
                       {card.bottomTag}
                     </span>

@@ -12,7 +12,12 @@ export default function CausesPage() {
   return (
     <>
       <PageBanner data={bannerData} />
-      <Causes hideTopLink />
+      <Causes
+        hideTopLink
+        eyebrow="OUR IMPACT AREAS"
+        headingPart1="Every project planted with"
+        headingItalic="care and purpose."
+      />
       <PreFooterCTA />
     </>
   );

@@ -14,7 +14,7 @@ export default function MarqueeBannerSmall({
   data = marqueeBannerSmallData,
 }: MarqueeBannerSmallProps) {
   return (
-    <section className="bg-[#D4EAA2] py-10 border-y border-[#C5E18E] overflow-hidden">
+    <section className="bg-[#D4EAA2] py-8 sm:py-10 border-y border-[#C5E18E] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           
@@ -47,7 +47,7 @@ export default function MarqueeBannerSmall({
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Link
               href={data.link.href}
-              className="group inline-flex items-center gap-2 text-[13.5px] sm:text-sm font-bold text-[#143323] hover:text-[#0F281B] transition-colors whitespace-nowrap border-b border-[#143323]/40 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 rounded-xs"
+              className="group inline-flex items-center gap-2 text-sm font-bold text-[#143323] hover:text-[#0F281B] transition-colors whitespace-nowrap border-b border-[#143323]/40 pb-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 rounded-xs"
             >
               <span>{data.link.text}</span>
               <svg

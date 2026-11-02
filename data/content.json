@@ -202,7 +202,7 @@
               {
                 "id": "purpose",
                 "tag": "PURPOSE",
-                "icon": "✦",
+                "icon": "sub-logo",
                 "title": "Partnering for Real Change",
                 "description": "We believe in a world where everyone has the chance to thrive. We create lasting change by partnering with communities, providing resources, and driving sustainable development.",
                 "bottomTag": "Community-Driven Development"
@@ -210,7 +210,7 @@
               {
                 "id": "action",
                 "tag": "ACTION",
-                "icon": "✦",
+                "icon": "sub-logo",
                 "title": "Sustainable Initiatives",
                 "description": "Our programmes empower communities through education, healthcare, and economic initiatives designed to lift families out of poverty and protect our shared environment.",
                 "bottomTag": "Holistic Rural Empowerment"
@@ -218,7 +218,7 @@
               {
                 "id": "ethos",
                 "tag": "ETHOS",
-                "icon": "★",
+                "icon": "sub-logo",
                 "title": "Rooted in Care",
                 "description": "Rooted in transparency, our community initiatives nurture long-term stability and sustainable local stewardship across rural regions.",
                 "badges": ["Grassroots", "Sustainable", "Transparent"]
@@ -431,7 +431,7 @@
             },
             "columns": [
               {
-                "title": "Navigation",
+                "title": "Quick Links",
                 "links": [
                   { "name": "Home", "href": "/" },
                   { "name": "About Us", "href": "/about-us" },
@@ -471,23 +471,23 @@
           "AboutPageBanner": {
             "breadcrumb": "Home / About Us",
             "eyebrow": "OUR PURPOSE & VALUES",
-            "headingPart1": "Rooted in care.",
-            "headingItalic": "Growing together.",
-            "subtitle": "Learn how Common Ground fosters grassroots empowerment, ecological restoration, and community resilience.",
+            "headingPart1": "Who we are,",
+            "headingItalic": "what we stand for.",
+            "subtitle": "Discover the philosophy, collective efforts, and guiding principles behind Common Ground's community missions.",
             "circularBadgeText": "Good things grow together.",
             "image": "/images/banner.png"
           },
           "CausesPageBanner": {
             "breadcrumb": "Home / Our Causes",
-            "eyebrow": "OUR IMPACT AREAS",
-            "headingPart1": "Small actions.",
-            "headingItalic": "Real possibilities.",
-            "subtitle": "Discover our active grassroots initiatives in nature conservation, inclusive education, and community healthcare.",
+            "eyebrow": "WHAT WE NURTURE",
+            "headingPart1": "Grassroots initiatives,",
+            "headingItalic": "meaningful change.",
+            "subtitle": "Discover our community-led projects making an enduring difference across conservation, education, and mutual care.",
             "circularBadgeText": "Good things grow together."
           },
           "TeamPageBanner": {
             "breadcrumb": "Home / Our Team",
-            "eyebrow": "OUR TEAM",
+            "eyebrow": "MEET OUR PEOPLE",
             "headingPart1": "Different strengths.",
             "headingItalic": "One shared purpose.",
             "subtitle": "Meaningful work takes many kinds of care. There is room for every kind of contribution.",
@@ -504,9 +504,9 @@
           "BlogPageBanner": {
             "breadcrumb": "Home / Blog",
             "eyebrow": "THE COMMON GROUND JOURNAL",
-            "headingPart1": "Good ideas.",
-            "headingItalic": "Shared freely.",
-            "subtitle": "Thoughts on caring for our planet, opening doors to learning, and making room for each other.",
+            "headingPart1": "Stories & dispatches,",
+            "headingItalic": "from the ground up.",
+            "subtitle": "Perspectives on ecological stewardship, community literacy, and grassroots solidarity from our team and volunteers.",
             "circularBadgeText": "Good things grow together."
           },
           "FAQPageBanner": {
@@ -519,10 +519,10 @@
           },
           "ContactPageBanner": {
             "breadcrumb": "Home / Contact Us",
-            "eyebrow": "LET'S START A CONVERSATION",
-            "headingPart1": "A little hello.",
-            "headingItalic": "A new possibility.",
-            "subtitle": "Have a question, an idea, or a little time to give? We'd love to hear what's on your mind.",
+            "eyebrow": "GET IN TOUCH",
+            "headingPart1": "We'd love to hear",
+            "headingItalic": "from you.",
+            "subtitle": "Whether you have an idea to share, a question to ask, or a desire to volunteer, our team is always here to connect.",
             "circularBadgeText": "Good things grow together."
           }
         }

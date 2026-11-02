@@ -47,7 +47,7 @@ export interface CommonGroundHero1Data {
   description?: string;
   primaryButton: ButtonLink;
   secondaryButton?: ButtonLink;
-  socialProof: SocialProof;
+  socialProof?: SocialProof;
   image: string;
   circularBadge: CircularBadgeData;
 }

@@ -53,7 +53,7 @@ export default function Navbar({ data = headerData }: NavbarProps) {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-[13.5px] py-1 border-b-2 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs px-0.5 ${
+                  className={`text-sm py-1 border-b-2 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs px-0.5 ${
                     isActive
                       ? "text-[#143323] font-bold border-[#143323]"
                       : "text-[#4A5D50] border-transparent hover:text-[#143323] hover:border-[#143323]/40 font-medium"

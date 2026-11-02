@@ -14,7 +14,7 @@ interface TeamGridProps {
 
 export default function TeamGrid({ data = teamSectionData, className = "" }: TeamGridProps) {
   return (
-    <section className={`py-10 bg-[#F7F7F0] overflow-hidden ${className}`}>
+    <section className={`py-14 sm:py-18 lg:py-20 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div
@@ -22,14 +22,14 @@ export default function TeamGrid({ data = teamSectionData, className = "" }: Tea
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-14"
         >
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
               <span>{data.eyebrow}</span>
             </div>
-            <h2 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#143323] leading-tight">
+            <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#143323] leading-[1.15]">
               {data.headingPart1}
               <br />
               <span className="italic font-serif font-normal text-[#143323]">
@@ -38,12 +38,12 @@ export default function TeamGrid({ data = teamSectionData, className = "" }: Tea
             </h2>
           </div>
 
-          <p className="text-[13.5px] sm:text-sm text-[#4A5D50] max-w-sm lg:text-right leading-relaxed font-medium">
+          <p className="text-sm text-[#4A5D50] max-w-sm lg:text-right leading-relaxed font-medium">
             {data.subtitleNote}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {data.roles.map((role, idx) => {
             const bgClass =
               role.bgVariant === "sage"
@@ -87,15 +87,15 @@ export default function TeamGrid({ data = teamSectionData, className = "" }: Tea
                   )}
                 </div>
 
-                <span className="text-[13.5px] font-bold tracking-[0.14em] text-[#4A5D50] uppercase block mb-1 font-sans">
+                <span className="text-xs font-bold tracking-[0.14em] text-[#4A5D50] uppercase block mb-1 font-sans">
                   {role.roleTag}
                 </span>
 
-                <h3 className="font-editorial text-2xl font-bold text-[#143323] mb-0.5 leading-snug group-hover:text-[#235037] transition-colors">
+                <h3 className="font-editorial text-2xl font-bold text-[#143323] mb-1 leading-snug group-hover:text-[#235037] transition-colors">
                   {role.name || role.title}
                 </h3>
 
-                <p className="text-[13.5px] font-semibold text-[#1E5638] font-sans">
+                <p className="text-sm font-semibold text-[#1E5638] font-sans">
                   {role.position || role.title}
                 </p>
               </motion.article>

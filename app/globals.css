@@ -23,9 +23,6 @@ body {
 }
 
 @theme {
-  --text-xs: 13.5px;
-  --text-xs--line-height: 1.25rem;
-
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
 

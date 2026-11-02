@@ -70,9 +70,9 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
     activeImageIndex !== null ? visibleItems[activeImageIndex] : null;
 
   return (
-    <section className={`py-10 bg-[#F7F7F0] overflow-hidden ${className}`}>
+    <section className={`py-14 sm:py-18 lg:py-20 bg-[#F7F7F0] overflow-hidden ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8">
           {visibleItems.map((item, index) => (
             <motion.button
               key={item.id}
@@ -94,7 +94,7 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-white/95 text-[#143323] text-[13.5px] font-semibold backdrop-blur-xs shadow-md">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-white/95 text-[#143323] text-xs sm:text-sm font-semibold backdrop-blur-xs shadow-md">
                   {viewPhotoText}
                 </span>
               </div>
@@ -103,13 +103,13 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
         </div>
 
         {hasMore && (
-          <div className="flex justify-center mt-4 mb-8">
+          <div className="flex justify-center mt-6 mb-8">
             <motion.button
               type="button"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={handleLoadMore}
-              className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 min-h-[46px] rounded-full bg-[#143323] hover:bg-[#1E4D35] text-[#FAFBF7] font-semibold text-[13.5px] tracking-wide transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 font-sans"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 min-h-[44px] rounded-full bg-[#143323] hover:bg-[#1E4D35] text-[#FAFBF7] font-semibold text-sm tracking-wide transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] focus-visible:ring-offset-2 font-sans"
             >
               <span>{loadMoreText}</span>
               <svg
@@ -139,7 +139,7 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8"
           >
             <div className="absolute top-4 left-4 right-4 sm:top-6 sm:left-8 sm:right-8 z-30 flex items-center justify-between pointer-events-none">
-              <div className="px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[#FAFBF7] text-[13.5px] font-semibold tracking-wider pointer-events-auto shadow-sm">
+              <div className="px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[#FAFBF7] text-xs sm:text-sm font-semibold tracking-wider pointer-events-auto shadow-sm">
                 {activeImageIndex + 1} / {visibleItems.length}
               </div>
 
@@ -202,7 +202,7 @@ export default function GalleryView({ data = gallerySectionData, className = "" 
                     </h3>
                   )}
                   {currentModalItem.subtitle && (
-                    <p className="text-[13.5px] text-white/90 drop-shadow-sm font-sans max-w-2xl">
+                    <p className="text-sm text-white/90 drop-shadow-sm font-sans max-w-2xl">
                       {currentModalItem.subtitle}
                     </p>
                   )}

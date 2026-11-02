@@ -15,7 +15,7 @@ export default function PreFooterCTA({ data = preFooterCTAData, className = "" }
   return (
     <section
       aria-label="Call to action"
-      className={`relative bg-gradient-to-br from-[#163827] via-[#10271C] to-[#143323] text-[#FAFBF7] py-10 border-t border-[#1F4532] overflow-hidden ${className}`}
+      className={`relative bg-gradient-to-br from-[#163827] via-[#10271C] to-[#143323] text-[#FAFBF7] py-14 sm:py-18 lg:py-20 border-t border-[#1F4532] overflow-hidden ${className}`}
     >
       <div
         className="absolute top-0 right-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-[#D0EA87]/10 blur-3xl pointer-events-none"
@@ -47,7 +47,7 @@ export default function PreFooterCTA({ data = preFooterCTAData, className = "" }
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D0EA87] animate-pulse" aria-hidden="true" />
               <span>{data.eyebrow}</span>
             </div>
@@ -60,7 +60,7 @@ export default function PreFooterCTA({ data = preFooterCTAData, className = "" }
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#FAFBF7]/85 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg text-[#FAFBF7]/85 leading-relaxed max-w-xl">
               {data.subtitle}
             </p>
           </motion.div>

@@ -13,7 +13,7 @@ interface VolunteerCTAProps {
 
 export default function VolunteerCTA({ data = volunteerCTAData, className = "" }: VolunteerCTAProps) {
   return (
-    <section aria-label="Volunteer" className={`bg-[#143323] text-[#FAFBF7] py-10 overflow-hidden relative ${className}`}>
+    <section aria-label="Volunteer" className={`bg-[#143323] text-[#FAFBF7] py-14 sm:py-18 lg:py-20 overflow-hidden relative ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -24,17 +24,24 @@ export default function VolunteerCTA({ data = volunteerCTAData, className = "" }
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D0EA87]/15 border border-[#D0EA87]/30 text-[#D0EA87] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D0EA87] animate-pulse" aria-hidden="true" />
               <span>{data.eyebrow}</span>
             </div>
 
-            <h2 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] mb-6">
+            <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] mb-5 sm:mb-6">
               {data.headingPart1}
-              <br />
+              {data.headingItalic && (
+                <>
+                  <br />
+                  <span className="italic font-serif font-normal text-[#D0EA87]">
+                    {data.headingItalic}
+                  </span>
+                </>
+              )}
             </h2>
 
-            <p className="text-[13.5px] sm:text-sm tracking-wider uppercase text-[#FAFBF7]/90 font-semibold mb-9 font-sans">
+            <p className="text-xs sm:text-sm tracking-wider uppercase text-[#FAFBF7]/90 font-semibold mb-8 sm:mb-9 font-sans">
               {data.subtitle}
             </p>
 

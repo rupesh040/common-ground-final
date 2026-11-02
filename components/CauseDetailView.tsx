@@ -78,7 +78,7 @@ interface CauseDetailViewProps {
 
 export default function CauseDetailView({ data, className = "" }: CauseDetailViewProps) {
   return (
-    <article className={`py-10 bg-[#F4F3EE] overflow-hidden ${className}`}>
+    <article className={`py-12 sm:py-16 lg:py-20 bg-[#F4F3EE] overflow-hidden ${className}`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.nav
@@ -88,7 +88,7 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
           aria-label="Breadcrumb"
           className="mb-8 font-sans"
         >
-          <ol className="flex items-center flex-wrap gap-2 text-[13.5px] font-medium text-[#4A5D50]">
+          <ol className="flex items-center flex-wrap gap-2 text-xs sm:text-sm font-medium text-[#4A5D50]">
             <li>
               <Link href="/" className="hover:text-[#143323] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded px-1 -mx-1">
                 Home
@@ -113,7 +113,7 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-xs font-sans">
             <span>{data.category}</span>
           </div>
           <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#143323] leading-[1.12] mb-4">
@@ -151,7 +151,7 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
               <span className="font-editorial text-3xl sm:text-4xl font-bold text-[#143323] block mb-1">
                 <AnimatedCount value={stat.value} delay={idx * 0.15} />
               </span>
-              <span className="text-[13.5px] sm:text-sm text-[#4A5D50] font-medium">
+              <span className="text-sm text-[#4A5D50] font-medium">
                 {stat.label}
               </span>
             </div>
@@ -203,7 +203,7 @@ export default function CauseDetailView({ data, className = "" }: CauseDetailVie
           <blockquote className="font-editorial italic text-2xl sm:text-3xl text-[#143323] mb-3">
             &ldquo;{data.impactQuote}&rdquo;
           </blockquote>
-          <cite className="text-[13.5px] font-bold text-[#143323]/70 uppercase tracking-widest not-italic font-sans">
+          <cite className="text-xs sm:text-sm font-bold text-[#143323]/70 uppercase tracking-widest not-italic font-sans">
             — {data.quoteAuthor}
           </cite>
         </motion.div>

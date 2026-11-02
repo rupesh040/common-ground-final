@@ -12,14 +12,27 @@ interface CausesProps {
   data?: CommonGroundCauses1Data;
   className?: string;
   hideTopLink?: boolean;
+  eyebrow?: string;
+  headingPart1?: string;
+  headingItalic?: string;
 }
 
-export default function Causes({ data = causesData, className = "", hideTopLink = false }: CausesProps) {
+export default function Causes({
+  data = causesData,
+  className = "",
+  hideTopLink = false,
+  eyebrow,
+  headingPart1,
+  headingItalic,
+}: CausesProps) {
   const pathname = usePathname();
   const shouldHideTopLink = hideTopLink || pathname === "/causes";
+  const displayEyebrow = eyebrow || data.eyebrow;
+  const displayHeadingPart1 = headingPart1 || data.headingPart1;
+  const displayHeadingItalic = headingItalic || data.headingItalic;
 
   return (
-    <section id="causes" className={`py-10 bg-[#F7F7F0] ${className}`}>
+    <section id="causes" className={`py-14 sm:py-18 lg:py-20 bg-[#F7F7F0] ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div
@@ -27,18 +40,18 @@ export default function Causes({ data = causesData, className = "", hideTopLink 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12"
         >
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-[13.5px] font-bold tracking-[0.16em] uppercase mb-4 shadow-xs font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5EED6] border border-[#CCE0B2] text-[#143323] text-xs font-bold tracking-[0.14em] uppercase mb-4 shadow-xs font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-[#143323]" aria-hidden="true" />
-              <span>{data.eyebrow}</span>
+              <span>{displayEyebrow}</span>
             </div>
-            <h2 className="font-editorial text-4xl sm:text-5xl font-bold tracking-tight text-[#143323] leading-tight">
-              {data.headingPart1}
+            <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#143323] leading-[1.15]">
+              {displayHeadingPart1}
               <br />
               <span className="italic font-serif font-normal text-[#143323]">
-                {data.headingItalic}
+                {displayHeadingItalic}
               </span>
             </h2>
           </div>
@@ -46,7 +59,7 @@ export default function Causes({ data = causesData, className = "", hideTopLink 
           {!shouldHideTopLink && data.topLink && (
             <Link
               href={data.topLink.href}
-              className="group inline-flex items-center gap-2 text-[13.5px] sm:text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors self-start md:self-end border-b border-[#143323]/30 pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-sm"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-[#143323] hover:text-[#235037] transition-colors self-start md:self-end border-b border-[#143323]/30 pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#143323] rounded-sm"
             >
               <span>{data.topLink.text}</span>
               <svg
@@ -62,7 +75,7 @@ export default function Causes({ data = causesData, className = "", hideTopLink 
           )}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {data.items.map((item, idx) => (
             <motion.article
               key={item.id}
@@ -90,17 +103,17 @@ export default function Causes({ data = causesData, className = "", hideTopLink 
                   </div>
                 </div>
 
-                <span className="text-[13.5px] font-bold tracking-[0.14em] text-[#4A5D50] uppercase block mb-2 font-sans">
+                <span className="text-xs font-bold tracking-[0.14em] text-[#4A5D50] uppercase block mb-2 font-sans">
                   {item.category}
                 </span>
 
-                <h3 className="font-editorial text-2xl font-bold text-[#143323] mb-3 leading-snug group-hover:text-[#235037] transition-colors">
+                <h3 className="font-editorial text-2xl font-bold text-[#143323] mb-2.5 leading-snug group-hover:text-[#235037] transition-colors">
                   <Link href={item.href} className="focus:outline-none focus-visible:underline">
                     {item.title}
                   </Link>
                 </h3>
 
-                <p className="text-sm text-[#4A5D50] leading-relaxed mb-6">
+                <p className="text-sm text-[#4A5D50] leading-relaxed mb-5">
                   {item.description}
                 </p>
               </div>
